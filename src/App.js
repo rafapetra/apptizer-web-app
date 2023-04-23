@@ -1,7 +1,7 @@
-import React from "react"
-import Header from "./components/Header"
-import Menu from "./components/Menu"
-import Content from "./components/Content"
+import React from "react";
+import Header from "./components/Header";
+import Menu from "./components/Menu";
+import AddItems from "./components/AddItems";
 import SplashPage from "./components/SplashPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NewFoodForm from "./components/NewFoodForm";
@@ -23,5 +23,5 @@ export default function App() {
         </div>
       </div>
     </Router>
-  )
+  );
 }
