@@ -14,6 +14,15 @@ html, body {
   margin-bottom: 0;
 }
 
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -23,12 +32,18 @@ html, body {
   padding: 20px;
   border-bottom: solid 0.8px #000000;
   margin-bottom: 0;
-
+  justify-content: space-between;
 }
 
 .header--tile {
+  order: 0;
   font-size: 15px;
   margin-right: auto;
+}
+
+.header--box {
+  order: 1;
+  align-self: right;
 }
 
 .container {
@@ -51,11 +66,13 @@ html, body {
 
 .menu {
   display: flex;
+  flex-direction: column;
   width: 100px;
   background: #a7f547;
   padding: 20px;
   border-right: solid 0.8px #000000;
   margin-bottom: 0;
+  gap: 10px;
 
 }
 

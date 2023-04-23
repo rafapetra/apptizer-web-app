@@ -26,10 +26,7 @@ function Content() {
     return (
             <React.Fragment>
               <div className="content">
-                <span className="content--header">
-                    <h1>Fuel better.</h1>
-                    <p>Discover your balance and keep track of it.</p>
-                </span>
+
                 {currentlyVisibleState}
               </div>
 
