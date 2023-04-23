@@ -1,22 +1,80 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  margin-bottom: 0;
 }
 
-body {
-  font-family: "Karla", sans-serif;
+html, body {
+  font-family: Arial, sans-serif, sans-serif;
+  font-size: 8pt;
   margin: 0;
+  background: #f5a447;
+  padding: 0;
+  margin-bottom: 0;
 }
 
 .header {
   display: flex;
   align-items: center;
-  height: 65px;
-  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
-  color: white;
+  height: 45px;
+  background: #a7f547; /* a7f547 */
+  color: rgb(0, 0, 0);
   padding: 20px;
+  border-bottom: solid 0.8px #000000;
+  margin-bottom: 0;
+
 }
 
 .header--tile {
   font-size: 15px;
   margin-right: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #a7f547;
+  margin-bottom: 0;
+  height: 100vh;
+
+}
+
+.container--box {
+  display: flex;
+  flex-direction: row;
+  background: #a7f547;
+  margin-bottom: 0;
+  height: 100%;
+}
+
+
+.menu {
+  display: flex;
+  width: 100px;
+  background: #a7f547;
+  padding: 20px;
+  border-right: solid 0.8px #000000;
+  margin-bottom: 0;
+
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #a7f547;
+}
+
+.content--header {
+  order: 0;
+}
+
+.content--newfoodform {
+  display: flex;
+  background: #a7f547;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  border: #000000 solid .8px;
+  margin: 5px;
 }

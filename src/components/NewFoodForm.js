@@ -17,17 +17,17 @@ function NewFoodForm (props) {
   
 
   return (   
-    <header className="header">
+    <div className="content--newfoodform">
       <form onSubmit={handleNewFoodFormSubmission}>
-        <input type='text' name='name' placeholder='Morning Shake' />
-        <input type='number' name='calories' placeholder='0' />
-        <input type='number' name='protein' placeholder='0' />
-        <input type='number' name='fat' placeholder='0' />
-        <input type='number' name='carbs' placeholder='0' />
+        Name: <input type='text' name='name' placeholder='Morning Shake' /><br />
+        Calories: <input type='number' name='calories' placeholder='0' /><br />
+        Protein: <input type='number' name='protein' placeholder='0' /><br />
+        Fat: <input type='number' name='fat' placeholder='0' /><br />
+        Carbs: <input type='number' name='carbs' placeholder='0' />
 
-        <button type='submit'>Help!</button>
+        <button type='submit'>Save</button>
       </form>
-    </header>
+    </div>
   );
 }
 

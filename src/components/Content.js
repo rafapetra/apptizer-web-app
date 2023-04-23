@@ -7,10 +7,6 @@ import NewFoodForm from './NewFoodForm.js';
 function Content() {
 
   const [formVisibleOnPage, setFormVisibleOnPage] = useState(true);
-
-  const handleClick = () => {
-      setFormVisibleOnPage(true);
-    }
   
     const handleAddingNewFood = async (newFoodData) => {
       const collectionRef = collection(db, "foods");
@@ -29,8 +25,14 @@ function Content() {
   }
     return (
             <React.Fragment>
-              <h2>Content</h2>
-              {currentlyVisibleState}
+              <div className="content">
+                <span className="content--header">
+                    <h1>Fuel better.</h1>
+                    <p>Discover your balance and keep track of it.</p>
+                </span>
+                {currentlyVisibleState}
+              </div>
+
             </React.Fragment>
     )
 }
