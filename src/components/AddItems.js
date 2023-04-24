@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import db from "../firebase.js";
+import { db } from './../firebase.js'
 import { collection, addDoc } from "firebase/firestore";
 import NewFoodForm from "./NewFoodForm.js";
 
@@ -19,7 +19,7 @@ function AddItems() {
       <NewFoodForm onNewFoodCreation={handleAddingNewFood} />
     );
   } else {
-    currentlyVisibleState = "not showing form";
+    currentlyVisibleState = "Item saved!";
   }
   return (
     <React.Fragment>

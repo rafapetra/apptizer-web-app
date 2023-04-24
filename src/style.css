@@ -5,11 +5,11 @@
   margin-bottom: 0;
 }
 
-html, body {
+html,
+body {
   font-family: Arial, sans-serif, sans-serif;
   font-size: 8pt;
   margin: 0;
-  background: #f5a447;
   padding: 0;
   margin-bottom: 0;
 }
@@ -20,7 +20,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 .header {
@@ -52,7 +52,6 @@ a:hover {
   background: #a7f547;
   margin-bottom: 0;
   height: 100vh;
-
 }
 
 .container--box {
@@ -63,7 +62,6 @@ a:hover {
   height: 100%;
 }
 
-
 .menu {
   display: flex;
   flex-direction: column;
@@ -73,7 +71,6 @@ a:hover {
   border-right: solid 0.8px #000000;
   margin-bottom: 0;
   gap: 10px;
-
 }
 
 .content {
@@ -88,10 +85,91 @@ a:hover {
 }
 
 .content--newfoodform {
+  width: 200px;
   display: flex;
-  background: #a7f547;
+  flex-direction: row;
+  background: #b3ff57;
   color: rgb(0, 0, 0);
-  padding: 20px;
-  border: #000000 solid .8px;
-  margin: 5px;
+  padding: 5px;
+  border: #ffffff solid 0px;
+  margin-top: 25px;
+  border-radius: 13pt;
+}
+
+.container--newfoodform--leftcolumn {
+  order: 1;
+  width: 30%;
+}
+
+.container--newfoodform--rightcolumn {
+  order: 2;
+  width: 70%;
+}
+
+.container--newfoodform--input1 {
+  color: #000000;
+  background: #b3ff57;
+  text-align: right;
+  padding: 8px;
+}
+
+.container--newfoodform--name {
+  color: #000000;
+  background: #b3ff57;
+  text-align: right;
+  padding: 8px;
+  margin-bottom: 18px;
+}
+
+.container--newfoodform--button {
+  background: #b3ff57;
+  width: 80%;
+  font-size: 9px;
+  padding: 5px;
+  border: #000000 solid 0.8px;
+  border-radius: 8pt;
+  margin-top: 8px;
+}
+
+.container--newfoodform--input2 {
+  color: #000000;
+}
+
+.container--newfoodform--inputform {
+  color: #194830;
+  width: 80%;
+  background: #b3ff57;
+  border: #174b2b solid 0.8px;
+  font-size: 10px;
+  padding: 4px;
+  margin-bottom: 6px;
+  margin-top: 5px;
+}
+
+.container--newfoodform--inputform-name {
+  color: #194830;
+  width: 80%;
+  background: #b3ff57;
+  border: #174b2b solid 0.8px;
+  font-size: 10px;
+  padding: 4px;
+  margin-bottom: 18px;
+  margin-top: 4px;
+}
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 0px solid green;
+  -webkit-text-fill-color: rebeccapurple;
+  -webkit-box-shadow: 0 0 0px 1000px #b3ff57 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
