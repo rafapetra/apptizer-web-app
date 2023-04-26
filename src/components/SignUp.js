@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { auth } from "../firebase.js";
+import { auth , db } from "../firebase.js";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -40,11 +40,9 @@ const Input = styled.input`
   background: #b3ff57;
   border: none;
   border-radius: 3px;
-
   &:focus, &:active {
     outline: none;
     border: 2px solid #b3bde8;
-
     &::placeholder {
       color: #000000;     
       background-color: #b3ff57;
@@ -53,7 +51,6 @@ const Input = styled.input`
     &:not(:placeholder-shown) {
       color: #b3ff57;
       background-color: #b3ff57;
-
 `;
 
 const ButtonContainer = styled.div`
@@ -70,11 +67,9 @@ height: 18px;
 border: solid .8px #000000;
 margin-top: auto;
 margin-bottom: auto;
-
 &:hover {
   background-color: #a7f547; // Change background color on hover
   cursor: pointer; // Change cursor to pointer on hover
-
   &:active, focus {
     background-color: #ffffff; 
   }
@@ -89,9 +84,11 @@ function SignUp() {
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
+
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
+      const uid = user.uid;
       const displayName = name; // set the user's display name to the entered name
       updateProfile(user, { displayName }) // update the user's profile with the new display name
         .then(() => {

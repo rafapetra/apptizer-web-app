@@ -12,10 +12,11 @@ body {
   margin: 0;
   padding: 0;
   margin-bottom: 0;
+  color: #ffffff;
 }
 
 a {
-  color: #000000;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -27,10 +28,10 @@ a:hover {
   display: flex;
   align-items: center;
   height: 45px;
-  background: #a7f547; /* a7f547 */
-  color: rgb(0, 0, 0);
+  background: #447cfc; /* a7f547 */
+  color: #ffffff;
   padding: 20px;
-  border-bottom: solid 0.8px #000000;
+  border-bottom: solid 0.8px #e6edff;
   margin-bottom: 0;
   justify-content: space-between;
 }
@@ -44,12 +45,14 @@ a:hover {
 .header--box {
   order: 1;
   align-self: right;
+  display: flex;
+  gap: 10px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  background: #a7f547;
+  background: #447cfc;
   margin-bottom: 0;
   height: 100vh;
 }
@@ -57,7 +60,7 @@ a:hover {
 .container--box {
   display: flex;
   flex-direction: row;
-  background: #a7f547;
+  background: #447cfc;
   margin-bottom: 0;
   height: 100%;
 }
@@ -66,9 +69,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   width: 100px;
-  background: #a7f547;
+  background: #447cfc;
   padding: 20px;
-  border-right: solid 0.8px #000000;
+  border-right: solid 0.8px #e6edff;
   margin-bottom: 0;
   gap: 10px;
 }
@@ -76,22 +79,23 @@ a:hover {
 .content {
   display: flex;
   flex-direction: column;
+  align-self: center;
   padding: 20px;
-  background: #a7f547;
-}
-
-.content--header {
-  order: 0;
+  background: #447cfc;
+  margin-bottom: auto;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .content--newfoodform {
   width: 200px;
   display: flex;
   flex-direction: row;
-  background: #b3ff57;
-  color: rgb(0, 0, 0);
+  background: #447cfc;
+  color: #ffffff;
   padding: 5px;
-  border: #ffffff solid 0px;
+  border: #e6edff solid 0px;
   margin-top: 25px;
   border-radius: 13pt;
 }
@@ -107,14 +111,14 @@ a:hover {
 }
 
 .container--newfoodform--input1 {
-  color: #000000;
+  color: #ffffff;
   background: #b3ff57;
   text-align: right;
   padding: 8px;
 }
 
 .container--newfoodform--name {
-  color: #000000;
+  color: #ffffff;
   background: #b3ff57;
   text-align: right;
   padding: 8px;
@@ -169,7 +173,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: 0px solid green;
-  -webkit-text-fill-color: rebeccapurple;
-  -webkit-box-shadow: 0 0 0px 1000px #b3ff57 inset;
+  -webkit-text-fill-color: #000000;
+  -webkit-box-shadow: 0 0 0px 1000px #9cbcfc inset;
   transition: background-color 5000s ease-in-out 0s;
 }

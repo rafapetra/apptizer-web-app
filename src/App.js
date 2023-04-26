@@ -21,7 +21,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<SplashPage />} default />
               <Route path="/additems" element={<AddItems />} />
-              <Route path="/newfoodform" element={<NewFoodForm />} />
+              <Route path="/newfoodform" element={<NewFoodForm  />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
             </Routes>

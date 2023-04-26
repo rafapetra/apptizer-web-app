@@ -13,12 +13,14 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   width: 300px;
   height: 400px;
+  color: #ffffff;
 `;
 
 const Header = styled.h1`
   font-size: 10pt;
   text-align: center;
   margin-bottom: 8px;
+  color: #ffffff;
 `;
 
 const SignInBox = styled.div`
@@ -29,29 +31,31 @@ background-color: #a7f547
 font-size: 7pt;
 margin: 8px;
 align-items: center;
+color: #ffffff;
 `;
 
 const Input = styled.input`
   padding: 0.5em;
   margin: 0.5em;
   width: 90%;
-  color: ${props => props.inputColor || "palevioletred"};
-  background: #b3ff57;
+  color: #101010;
+  background: #9cbcfc;
   border: none;
   border-radius: 3px;
 
   &:focus, &:active {
     outline: none;
-    border: 2px solid #b3bde8;
+    border: 0px solid #b3bde8;
+    background: #b3bde8;
 
-    &::placeholder {
-      color: #000000;     
-      background-color: #b3ff57;
+  &:placeholder {
+    color: #000000;     
+    background-color: #b3bde8;
     }
   
     &:not(:placeholder-shown) {
-      color: #b3ff57;
-      background-color: #b3ff57;
+      color: #000000;
+      background-color: #b3bde8;
 
 `;
 
@@ -62,20 +66,26 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
-background-color: #b3bde8;
+background-color: #ffffff;
 font-size: 7pt;
 width: 70px;
 height: 18px;
-border: solid .8px #000000;
+border: solid .8px #ffffff;
+border-radius: 16pt;
 margin-top: auto;
 margin-bottom: auto;
+color: #000000;
 
 &:hover {
-  background-color: #a7f547; // Change background color on hover
-  cursor: pointer; // Change cursor to pointer on hover
+  background-color: #447cfc; 
+  cursor: pointer;
+  border: solid .8px #ffffff;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
 
   &:active, focus {
     background-color: #ffffff; 
+  }
 `;
 
 
