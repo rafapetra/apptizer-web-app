@@ -3,15 +3,18 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const StyledWrapper = styled.div`
+
   font-size: 8pt;
   text-align: center;
   line-height: 25pt;
   color: #ffffff;
-  width: 300px;
+  width: auto;
+  margin-top: 50px;
+  margin-left: 90px;
   padding-bottom: 10px;
-  border-bottom: solid .8px #ffffff;
-
+  background-color: #447cfc;
   &:hover a {
+    
     text-decoration: none;
 
   }
@@ -25,7 +28,7 @@ height: auto;
 border: solid .8px #ffffff;
 border-radius: 16pt;
 margin-top: auto;
-margin-bottom: auto;
+margin-bottom: 25px;
 color: #000000;
 padding: 4px;
 
@@ -42,8 +45,14 @@ padding: 4px;
   }
 `;
 
+const Hr = styled.hr`
+border: solid 0.5px #e6edff;
+width: 50%;
+margin-left:25% !important; margin-right:25% !important;"
+`
+
 const HeaderTitle = styled.span`
-  font-size: 30pt;
+  font-size: 20pt;
   align-self: center;
 `;
 
@@ -51,16 +60,15 @@ const HeaderTitle = styled.span`
 function SplashPage() {
   return (
    
-    <div className="content">
        <StyledWrapper>
-          <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "5rem"}}>
+          <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "4.5rem"}}>
             Feels good</HeaderTitle><br />
-            <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "3.5rem"}}>
+            <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "3.2rem"}}>
             to fuel better.</HeaderTitle><br />
           <span>Discover your balance, keep track of it.</span><br />
           <Link to="/signup"> <Button>Start tracking</Button></Link>
+          <Hr></Hr>
           </StyledWrapper>
-    </div>
    
   );
 }

@@ -24,6 +24,7 @@ const SignUpBox = styled.div`
   font-size: 7pt;
   margin: 8px;
   align-items: center;
+
 `;
 
 const Header = styled.h1`
@@ -36,21 +37,27 @@ const Input = styled.input`
   padding: 0.5em;
   margin: 0.5em;
   width: 90%;
-  color: ${props => props.inputColor || "palevioletred"};
-  background: #b3ff57;
+  color: #8cc895;
+  background: #447cfc;
   border: none;
-  border-radius: 3px;
+  border-bottom: solid 0.8px #e6edff;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
+  &::placeholder {
+    color: #c2cff4; 
+  }
   &:focus, &:active {
     outline: none;
-    border: 2px solid #b3bde8;
-    &::placeholder {
-      color: #000000;     
-      background-color: #b3ff57;
+    border-bottom: solid 0.8px #e6edff;    &::placeholder {
+      color: #5789fb;    
+      background: #447cfc;
+
     }
   
     &:not(:placeholder-shown) {
       color: #b3ff57;
-      background-color: #b3ff57;
+      background-color: #447cfc;
 `;
 
 const ButtonContainer = styled.div`
@@ -60,21 +67,29 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
-background-color: #b3bde8;
+background-color: #ffffff;
 font-size: 7pt;
-width: 70px;
-height: 18px;
-border: solid .8px #000000;
+width: 80px;
+height: auto;
+border: solid .8px #ffffff;
+border-radius: 16pt;
 margin-top: auto;
 margin-bottom: auto;
+color: #000000;
+padding: 4px;
+
 &:hover {
-  background-color: #a7f547; // Change background color on hover
-  cursor: pointer; // Change cursor to pointer on hover
+  background-color: #447cfc; 
+  cursor: pointer;
+  border: solid .8px #ffffff;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+
   &:active, focus {
-    background-color: #ffffff; 
+    background-color: #b3ff57; 
+    color: #000000;
   }
 `;
-
 function SignUp() {
   const [signUpSuccess, setSignUpSuccess] = useState(null);
   const [signOutSuccess, setSignOutSuccess] = useState(null);
@@ -118,8 +133,8 @@ function SignUp() {
         <SignUpBox>
           <Header>It's free.</Header>
           <form onSubmit={doSignUp}>
-  <Input type="text" name="name" placeholder="name" inputColor="rebeccapurple" /><br />
-  <Input type="text" name="email" placeholder="email" inputColor="rebeccapurple" /><br />
+  <Input type="text" name="name" placeholder="name" /><br />
+  <Input type="text" name="email" placeholder="email"/><br />
   <Input type="password" name="password" placeholder="password" /><br />
   <ButtonContainer>
   <Button type="submit">Sign up</Button>

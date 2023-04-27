@@ -38,25 +38,26 @@ const Input = styled.input`
   padding: 0.5em;
   margin: 0.5em;
   width: 90%;
-  color: #101010;
-  background: #9cbcfc;
+  color: #8cc895;
+  background: #447cfc;
   border: none;
-  border-radius: 3px;
+  border-bottom: solid 0.8px #e6edff;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
+  &::placeholder {
+    color: #c2cff4; 
+  }
   &:focus, &:active {
     outline: none;
-    border: 0px solid #b3bde8;
-    background: #b3bde8;
+    border-bottom: solid 0.8px #e6edff;    &::placeholder {
+      color: #5789fb;    
+      background: #447cfc;
 
-  &:placeholder {
-    color: #000000;     
-    background-color: #b3bde8;
     }
   
     &:not(:placeholder-shown) {
-      color: #000000;
-      background-color: #b3bde8;
-
+      color: #b3ff57;
+      background-color: #447cfc;
 `;
 
 const ButtonContainer = styled.div`
@@ -127,11 +128,11 @@ function SignIn() {
           {signInSuccess}
           {signInError}
           <form onSubmit={doSignIn}>
-            <Input type="text" name="email" placeholder="" />
+            <Input type="text" name="email" placeholder="e-mail" />
             <Input
               type="password"
               name="password"
-              placeholder=""
+              placeholder="password"
             />
             <ButtonContainer>
             <Button type="submit">Log In</Button>
@@ -144,8 +145,7 @@ function SignIn() {
     return (
       <React.Fragment>
         <SignInBox>
-          {signInSuccess}<br />
-          <br />
+          {signInSuccess}
           <ButtonContainer>
           <Button onClick={doSignOut}>Sign out</Button>
           </ButtonContainer>
