@@ -119,13 +119,7 @@ function NewFoodForm(props) {
   }, []);
 
 
-  const foodOptions = foodItems.map((food) => (
-    <option key={food.id} value={food.id}>
-      {food.name}
-    </option>
-  ));
-
-  function handleNewFoodFormSubmission(event) {
+  async function handleNewFoodFormSubmission(event) {
     event.preventDefault();
     const newFoodData = {
       name: event.target.name.value,
@@ -134,7 +128,9 @@ function NewFoodForm(props) {
       fat: parseInt(event.target.fat.value),
       carbs: parseInt(event.target.carbs.value),
     };
-    props.onNewFoodCreation(newFoodData);
+    const docRef = await addDoc(collection(db, "foods"), newFoodData); // add the new food document to the "foods" collection and obtain the DocumentReference object
+    const docId = docRef.id; // obtain the document ID from the DocumentReference object
+    props.onNewFoodCreation(newFoodData, docId);
   }
 
   if (auth.currentUser == null) {
@@ -147,7 +143,6 @@ function NewFoodForm(props) {
       <StyledWrapper>
                    <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "1.2rem"}}>
             Add new items to your list.</HeaderTitle> 
-            <select>{foodOptions}</select>
 
           <NewFoodFormBox>
           <LeftColumn>
@@ -170,7 +165,7 @@ function NewFoodForm(props) {
                 <br />
                 <Input type="number" name="fat" placeholder="0" />
                 <br />
-                <Input type="number" name="carbs" placeholder="0" />
+                <Input type="number" name="carbs" placeholder="0" /><br></br><br></br>
                 <Button
                   type="submit"
                 >

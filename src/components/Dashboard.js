@@ -65,8 +65,8 @@ border: solid 0.5px #e6edff;
 
 function Dashboard() {
   const [foodItems, setFoodItems] = useState([]);
-  const [selectedFood, setSelectedFood] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [foodDocs, setFoodDocs] = useState([]);
 
   useEffect(() => {
     const user = auth.currentUser;
@@ -80,20 +80,16 @@ function Dashboard() {
 
     getDocs(userFoodsCollectionRef)
       .then((querySnapshot) => {
-        const foods = querySnapshot.docs.map((doc) => doc.data());
-        setFoodItems(foods);
+        const docs = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }));
+        setFoodDocs(docs);
       })
       .catch((error) => {
-        setErrorMessage("Error fetching food items.");
         console.error(error);
       });
   }, []);
-
-  const foodOptions = foodItems.map((food) => (
-    <option key={food.id} value={food.id}>
-      {food.name}
-    </option>
-  ));
 
   return (
     <StyledWrapper>
@@ -104,11 +100,14 @@ function Dashboard() {
       ) : (
         <React.Fragment>
           <HeaderTitle>Dashboard</HeaderTitle>
-          <Macros>{selectedFood ? selectedFood.name : "Select a food item"}</Macros>
-          <select onChange={(e) => setSelectedFood(foodItems.find((food) => food.id === e.target.value))}>
-            <option value="">Select a food item</option>
-            {foodOptions}
-          </select>
+          <Macros></Macros>
+          <select>
+              {foodDocs.map((doc) => (
+                <option key={doc.id} value={doc.id}>
+                  {doc.data.name}
+                </option>
+              ))}
+            </select>
         </React.Fragment>
       )}
     </StyledWrapper>
