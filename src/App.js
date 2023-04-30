@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Menu from "./components/Menu";
 import AddItems from "./components/AddItems";
 import SplashPage from "./components/SplashPage";
+import Dashboard from "./components/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NewFoodForm from "./components/NewFoodForm";
 import SignIn from "./components/SignIn";
@@ -22,6 +23,7 @@ export default function App() {
               <Route path="/" element={<SplashPage />} default />
               <Route path="/additems" element={<AddItems />} />
               <Route path="/newfoodform" element={<NewFoodForm  />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
             </Routes>
