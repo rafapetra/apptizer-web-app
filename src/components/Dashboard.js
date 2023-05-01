@@ -10,14 +10,12 @@ const StyledWrapper = styled.div`
   line-height: 25pt;
   color: #ffffff;
   width: auto;
-  margin-top: 15px;
-  margin-left: 40px;
+  margin-top: 10px;
+  margin-left: 20px;
   padding-bottom: 10px;
   background-color: #447cfc;
   &:hover a {
-    
     text-decoration: none;
-
   }
 `;
 
@@ -57,9 +55,81 @@ const HeaderTitle = styled.span`
 `;
 
 const Macros = styled.div`
-border: solid 0.5px #e6edff;
+border: solid 0.0px #e6edff;
   width: 300px;
   padding: 5px;
+`;
+
+const MacrosBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 8pt;
+  line-height: 25pt;
+  color: #ffffff;
+  width: 300px;
+  margin-top: 0px;
+  margin-left: 0px;
+  padding-bottom: 10px;
+  background-color: #000000;
+  &:hover a {
+    text-decoration: none;
+  }
+`;
+
+const MacrosBoxHeader = styled.div`
+order: 0;
+background: #0fffff;
+color: #000000;
+display: flex;
+
+`;
+
+const MacrosBoxHeaderTime = styled.div`
+order: 0;
+background: #CCCCCC;
+color: #000000;
+display: flex;
+width: 40px;
+`;
+
+const MacrosBoxHeaderName = styled.div`
+order: 1;
+background: #dddddd;
+color: #000000;
+display: flex;
+width: 90px;
+`;
+
+const MacrosBoxHeaderCalories = styled.div`
+order: 2;
+background: #eeeeee;
+color: #000000;
+display: flex;
+width: 42.5px;
+`;
+const MacrosBoxHeaderProtein = styled.div`
+order: 2;
+background: #eeeeee;
+color: #000000;
+display: flex;
+width: 42.5px;
+
+`;
+const MacrosBoxHeaderCarbs = styled.div`
+order: 3;
+background: #eeeeee;
+color: #000000;
+display: flex;
+width: 42.5px;
+
+`;
+const MacrosBoxHeaderFat = styled.div`
+order: 4;
+background: #ffffff;
+color: #000000;
+display: flex;
+width: 42.5px;
+text-align: center; !important
 `;
 
 
@@ -67,6 +137,8 @@ function Dashboard() {
   const [foodItems, setFoodItems] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [foodDocs, setFoodDocs] = useState([]);
+  const [selectedFood, setSelectedFood] = useState(null);
+  const [macroDivs, setMacroDivs] = useState([]);
 
   useEffect(() => {
     const user = auth.currentUser;
@@ -91,6 +163,28 @@ function Dashboard() {
       });
   }, []);
 
+  const handleFoodChange = (event) => {
+    setSelectedFood(event.target.value);
+  };
+
+  const handleAddMacroDiv = () => {
+    if (!selectedFood) {
+      return;
+    }
+    const foodDoc = foodDocs.find((doc) => doc.id === selectedFood);
+    if (!foodDoc) {
+      return;
+    }
+    
+    setMacroDivs((prevMacroDivs) => [
+      ...prevMacroDivs,
+      <Macros key={foodDoc.id}>
+        {foodDoc.data.name}<br></br>
+        {foodDoc.data.protein}
+        </Macros>,
+    ]);
+  };
+
   return (
     <StyledWrapper>
       {auth.currentUser == null ? (
@@ -104,14 +198,41 @@ function Dashboard() {
             fontSize: "1.5rem",
             letterSpacing: "0.07rem",
           }}>Dashboard</HeaderTitle>
-          <Macros></Macros>
-          <select>
-              {foodDocs.map((doc) => (
-                <option key={doc.id} value={doc.id}>
-                  {doc.data.name}
-                </option>
-              ))}
-            </select>
+
+          <MacrosBox>
+            <MacrosBoxHeader>
+              <MacrosBoxHeaderTime>
+                TIME
+              </MacrosBoxHeaderTime>
+              <MacrosBoxHeaderName>
+                Name
+              </MacrosBoxHeaderName>
+              <MacrosBoxHeaderCalories>
+                Calories
+              </MacrosBoxHeaderCalories>
+              <MacrosBoxHeaderProtein>
+                Protein
+              </MacrosBoxHeaderProtein>
+              <MacrosBoxHeaderCarbs>
+                Carbs
+              </MacrosBoxHeaderCarbs>
+              <MacrosBoxHeaderFat>
+                Fat
+              </MacrosBoxHeaderFat>
+            </MacrosBoxHeader>
+          {macroDivs}
+          </MacrosBox>
+        
+       
+          <select className="dropdown">
+             <option value="">Select a food item</option>
+            {foodDocs.map((doc) => (
+              <option key={doc.id} value={doc.id}>
+                {doc.data.name}
+              </option>
+            ))}
+          </select><br></br>
+          <Button onClick={handleAddMacroDiv}>Add</Button>
         </React.Fragment>
       )}
     </StyledWrapper>
