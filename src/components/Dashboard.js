@@ -10,8 +10,8 @@ const StyledWrapper = styled.div`
   line-height: 25pt;
   color: #ffffff;
   width: auto;
-  margin-top: 10px;
-  margin-left: 20px;
+  margin-top: 15px;
+  margin-left: 40px;
   padding-bottom: 10px;
   background-color: #447cfc;
   &:hover a {
@@ -57,7 +57,7 @@ const HeaderTitle = styled.span`
 const Macros = styled.div`
 border: solid 0.0px #e6edff;
   width: 300px;
-  padding: 5px;
+  padding: 0px;
 `;
 
 const MacrosBox = styled.div`
@@ -66,7 +66,7 @@ const MacrosBox = styled.div`
   font-size: 8pt;
   line-height: 25pt;
   color: #ffffff;
-  width: 300px;
+  width: auto;
   margin-top: 0px;
   margin-left: 0px;
   padding-bottom: 10px;
@@ -81,7 +81,7 @@ order: 0;
 background: #0fffff;
 color: #000000;
 display: flex;
-
+text-align: center;
 `;
 
 const MacrosBoxHeaderTime = styled.div`
@@ -90,14 +90,18 @@ background: #CCCCCC;
 color: #000000;
 display: flex;
 width: 40px;
+text-align: center;
+justify-content: center;
+
 `;
 
 const MacrosBoxHeaderName = styled.div`
-order: 1;
-background: #dddddd;
-color: #000000;
-display: flex;
-width: 90px;
+  order: 1;
+  background: #dddddd;
+  color: #000000;
+  display: flex;
+  width: 90px;
+  justify-content: center;
 `;
 
 const MacrosBoxHeaderCalories = styled.div`
@@ -106,6 +110,8 @@ background: #eeeeee;
 color: #000000;
 display: flex;
 width: 42.5px;
+justify-content: center;
+
 `;
 const MacrosBoxHeaderProtein = styled.div`
 order: 2;
@@ -113,6 +119,7 @@ background: #eeeeee;
 color: #000000;
 display: flex;
 width: 42.5px;
+justify-content: center;
 
 `;
 const MacrosBoxHeaderCarbs = styled.div`
@@ -121,6 +128,7 @@ background: #eeeeee;
 color: #000000;
 display: flex;
 width: 42.5px;
+justify-content: center;
 
 `;
 const MacrosBoxHeaderFat = styled.div`
@@ -129,16 +137,25 @@ background: #ffffff;
 color: #000000;
 display: flex;
 width: 42.5px;
-text-align: center; !important
+justify-content: center;
+
+`;
+
+const MacrosBoxContent = styled.div`
+order: 1;
+width: 100%;
+flex-direction: row;
+background-color: #ffffff;
+color: #000000;
 `;
 
 
 function Dashboard() {
-  const [foodItems, setFoodItems] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [foodDocs, setFoodDocs] = useState([]);
   const [selectedFood, setSelectedFood] = useState(null);
   const [macroDivs, setMacroDivs] = useState([]);
+  const [totalProtein, setTotalProtein] = useState(0); 
 
   useEffect(() => {
     const user = auth.currentUser;
@@ -175,14 +192,22 @@ function Dashboard() {
     if (!foodDoc) {
       return;
     }
+
+    const timestamp = Date.now(); // get the current timestamp in milliseconds
     
     setMacroDivs((prevMacroDivs) => [
       ...prevMacroDivs,
       <Macros key={foodDoc.id}>
-        {foodDoc.data.name}<br></br>
+       <MacrosBoxContent>
+        {new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12' })}
+        {foodDoc.data.name}
         {foodDoc.data.protein}
+        </MacrosBoxContent>
         </Macros>,
     ]);
+
+    setTotalProtein((prevTotal) => prevTotal + foodDoc.data.protein); // update total protein
+
   };
 
   return (
@@ -199,7 +224,7 @@ function Dashboard() {
             letterSpacing: "0.07rem",
           }}>Dashboard</HeaderTitle>
 
-          <MacrosBox>
+<MacrosBox>
             <MacrosBoxHeader>
               <MacrosBoxHeaderTime>
                 TIME
@@ -221,17 +246,18 @@ function Dashboard() {
               </MacrosBoxHeaderFat>
             </MacrosBoxHeader>
           {macroDivs}
+          <div>Total Protein: {totalProtein}</div> {/* display total protein */}
           </MacrosBox>
         
        
-          <select className="dropdown">
-             <option value="">Select a food item</option>
+          <select onChange={handleFoodChange}>
+            <option value="">Select a food item</option>
             {foodDocs.map((doc) => (
               <option key={doc.id} value={doc.id}>
                 {doc.data.name}
               </option>
             ))}
-          </select><br></br>
+          </select>
           <Button onClick={handleAddMacroDiv}>Add</Button>
         </React.Fragment>
       )}
