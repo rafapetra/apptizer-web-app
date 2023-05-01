@@ -12,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
   margin-bottom: 0;
-  color: #ffffff;
+  background: #447cfc;
 }
 
 a {
@@ -84,7 +84,18 @@ a:hover {
   padding: 20px;
   background: #447cfc;
   margin-bottom: auto;
-  margin-top: 30px;
+  margin-top: 10px;
+
+}
+
+.dropdown {
+  background-color: #447cfc; 
+margin-left: 10px;
+border: solid 0.8px #e6edff;
+width: 200px;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+color: #e6edff;
+font-size: 8pt;
 
 }
 

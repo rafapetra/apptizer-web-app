@@ -16,14 +16,14 @@ const StyledWrapper = styled.div`
   line-height: 25pt;
   color: #ffffff;
   width: auto;
-  margin-top: 15px;
-  margin-left: 40px;
+  margin-left: 20px;
   padding-bottom: 10px;
   background-color: #447cfc;
   &:hover a {
     text-decoration: none;
   }
 `;
+
 
 function AddItems() {
   const [formVisibleOnPage, setFormVisibleOnPage] = useState(true);
@@ -90,9 +90,10 @@ function AddItems() {
           <div className="content">
             {currentlyVisibleState}
 
-            <select>
+            Your current items:
+             <select className="dropdown">
               {foodDocs.map((doc) => (
-                <option key={doc.id} value={doc.id}>
+                       <option key={doc.id} value={doc.id}>
                   {doc.data.name}
                 </option>
               ))}

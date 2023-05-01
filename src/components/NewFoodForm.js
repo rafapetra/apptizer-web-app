@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { db , auth , app , getDb } from './../firebase.js'
-import { collection, addDoc , setDoc, doc, getDoc , getDocs , } from "firebase/firestore";
+import { db, auth, app, getDb } from "./../firebase.js";
+import {
+  collection,
+  addDoc,
+  setDoc,
+  doc,
+  getDoc,
+  getDocs,
+} from "firebase/firestore";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -31,42 +38,49 @@ const Input = styled.input`
 `;
 
 const StyledWrapper = styled.div`
-display: flex;
-flex-direction: column;
-padding: 10px;
-background: #447cfc;
-margin-top: -30px;
-gap: 20px;
-
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: #447cfc;
+  margin-top: -30px;
+  gap: 13px;
 `;
 
 const NewFoodFormBox = styled.div`
-width: 200px;
-display: flex;
-flex-direction: row;
-background: #447cfc;
-color: #ffffff;
-padding: 5px;
-border: #e6edff solid .8px;
-border-radius: 0pt;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  background: #447cfc;
+  color: #ffffff;
+  padding: 0px;
+  border: #e6edff solid 0.8px;
+  border-radius: 0pt;
 `;
 
 const LeftColumn = styled.div`
-order: 1;
-width: 30%;
+  order: 1;
+  width: 30%;
 `;
 
 const RightColumn = styled.div`
-order: 2;
-width: 70%;
+  order: 2;
+  width: 70%;
 `;
 
 const LeftColumnRow = styled.div`
-color: #ffffff;
-background: #447cfc;
-text-align: right;
-padding: 8px;
-margin-bottom: 18px;
+  color: #ffffff;
+  background: #447cfc;
+  text-align: right;
+  padding: 5px;
+  margin-bottom: 5px;
+`;
+
+const RightColumnRow = styled.div`
+  color: #ffffff;
+  background: #447cfc;
+  text-align: right;
+  padding: 3px;
+  margin-bottom: 0px;
 `;
 
 const Button = styled.button`
@@ -94,10 +108,11 @@ padding: 4px;
   }
 `;
 
+
+
 const HeaderTitle = styled.span`
   font-size: 20pt;
 `;
-
 
 function NewFoodForm(props) {
   const [foodItems, setFoodItems] = useState([]);
@@ -118,7 +133,6 @@ function NewFoodForm(props) {
       });
   }, []);
 
-
   async function handleNewFoodFormSubmission(event) {
     event.preventDefault();
     const newFoodData = {
@@ -138,43 +152,49 @@ function NewFoodForm(props) {
       <React.Fragment>You must be signed in to add new items.</React.Fragment>
     );
   } else if (auth.currentUser != null) {
- 
     return (
       <StyledWrapper>
-                   <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "1.2rem"}}>
-            Add new items to your list.</HeaderTitle> 
+        <HeaderTitle
+          style={{
+            fontFamily: "'Playfair Display', sans-serif",
+            fontSize: "1.5rem",
+            letterSpacing: "0.07rem",
+          }}
+        >
+          Add new items to your list.
+        </HeaderTitle>
 
-          <NewFoodFormBox>
+        <NewFoodFormBox>
           <LeftColumn>
-          <LeftColumnRow>Name:</LeftColumnRow>
-          <LeftColumnRow>Calories:</LeftColumnRow>
-          <LeftColumnRow>Protein:</LeftColumnRow>
-          <LeftColumnRow>Fat:</LeftColumnRow>
-          <LeftColumnRow>Carbs:</LeftColumnRow>
+            <LeftColumnRow>Name:</LeftColumnRow>
+            <LeftColumnRow>Calories:</LeftColumnRow>
+            <LeftColumnRow>Protein:</LeftColumnRow>
+            <LeftColumnRow>Fat:</LeftColumnRow>
+            <LeftColumnRow>Carbs:</LeftColumnRow>
           </LeftColumn>
 
-
-      <RightColumn>
-
-              <form onSubmit={handleNewFoodFormSubmission}>
+          <RightColumn>
+            <form onSubmit={handleNewFoodFormSubmission}>
+              <RightColumnRow>
                 <Input type="text" name="name" placeholder="Morning Shake" />
-                <br />
+              </RightColumnRow>
+              <RightColumnRow>
+                {" "}
                 <Input type="number" name="calories" placeholder="0" />
-                <br />
+              </RightColumnRow>
+              <RightColumnRow>
                 <Input type="number" name="protein" placeholder="0" />
-                <br />
+              </RightColumnRow>
+              <RightColumnRow>
                 <Input type="number" name="fat" placeholder="0" />
-                <br />
-                <Input type="number" name="carbs" placeholder="0" /><br></br><br></br>
-                <Button
-                  type="submit"
-                >
-                  Save
-                </Button>
-              </form>
-              </RightColumn>
-            </NewFoodFormBox>
-            
+              </RightColumnRow>
+              <RightColumnRow>
+                <Input type="number" name="carbs" placeholder="0" />
+              </RightColumnRow>
+              <Button type="submit">Save</Button>
+            </form>
+          </RightColumn>
+        </NewFoodFormBox>
       </StyledWrapper>
     );
   }

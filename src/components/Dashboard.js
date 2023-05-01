@@ -99,7 +99,11 @@ function Dashboard() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <HeaderTitle>Dashboard</HeaderTitle>
+          <HeaderTitle style={{
+            fontFamily: "'Playfair Display', sans-serif",
+            fontSize: "1.5rem",
+            letterSpacing: "0.07rem",
+          }}>Dashboard</HeaderTitle>
           <Macros></Macros>
           <select>
               {foodDocs.map((doc) => (
