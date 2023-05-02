@@ -71,10 +71,11 @@ a:hover {
   flex-direction: column;
   width: 100px;
   background: #447cfc;
-  padding: 20px;
-  border-right: solid 0.8px #e6edff;
+  padding: 13px;
+  border-right: solid 0px #e6edff;
   margin-bottom: 0;
-  gap: 10px;
+  padding-top: 15px;
+  gap: 16px;
   position:static;
 }
 
@@ -96,7 +97,17 @@ width: 200px;
 font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 color: #e6edff;
 font-size: 8pt;
+}
 
+.dropdownDashboard {
+  background-color: #447cfc; 
+margin-left: 10px;
+border: solid 0.8px #e6edff;
+width: 130px;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+color: #e6edff;
+font-size: 8pt;
+margin: 8px;
 }
 
 input:-webkit-autofill,
