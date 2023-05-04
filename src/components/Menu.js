@@ -5,7 +5,7 @@ export default function Menu() {
     return (
         <div className="menu">
            <div><Link to="/dashboard">Dashboard</Link></div>
-           <div><Link to="/additems">Add Items</Link></div>
+           <div><Link to="/additems">Manage Pantry</Link></div>
         </div>
     )
 }

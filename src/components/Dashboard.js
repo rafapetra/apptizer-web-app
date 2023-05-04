@@ -26,19 +26,20 @@ const StyledWrapper = styled.div`
 `;
 
 const Button = styled.button`
-background-color: #ffffff;
+background-color: #447cfc;
 font-size: 7pt;
 width: 60px;
 border: solid .8px #ffffff;
 border-radius: 16pt;
-color: #000000;
-padding: 4px;
+color: #ffffff;
+height: 15px;
+text-align: center;
 
 &:hover {
-  background-color: #447cfc; 
+  background-color: #ffffff; 
   cursor: pointer;
   border: solid .8px #ffffff;
-  color: #ffffff;
+  color: #000000;
   transition: all 0.2s ease-in-out;
 
   &:active, focus {
@@ -54,19 +55,18 @@ justify-content: center;
 margin: auto;
 margin-top: 8px;
 height: 15px;
-background-color: #ffffff;
+background-color: #447cfc;
 font-size: 7pt;
 width: 60px;
 border: solid .8px #ffffff;
 border-radius: 16pt;
-color: #000000;
-padding: 4px;
+color: #ffffff;
 
 &:hover {
-  background-color: #447cfc; 
+  background-color: #ffffff;
   cursor: pointer;
   border: solid .8px #ffffff;
-  color: #ffffff;
+  color: #000000;
   transition: all 0.2s ease-in-out;
 
   &:active, focus {
@@ -75,12 +75,13 @@ padding: 4px;
   }
 `;
 
-const HeaderTitle = styled.span`
-  font-size: 20pt;
+const HeaderTitle = styled.div`
+  font-size: 40pt;
+  margin-bottom: 18px;
 `;
 
 const Macros = styled.div`
-  border: solid 0px #e6edff;
+  border: solid 0px #000000;
   width: 400px;
   padding: 0px;
 `;
@@ -168,6 +169,7 @@ const MacrosBoxContent = styled.div`
   flex-direction: row;
   background-color: #5789fb;
   color: #0e1932;
+  border-bottom: solid 1px #447cfc;
 `;
 
 const MacrosBoxContentTime = styled.div`
@@ -215,7 +217,7 @@ const MacrosBoxContentFat = styled.div`
 
 const MacrosBoxContentDelete = styled.div`
   order: 6;
-  background-color: #447cfc;;
+  background-color: #447cfc;
   width: 80px;
 `;
 
@@ -230,9 +232,8 @@ const TotalBoxTotal = styled.div`
   background-color: #447cfc;
   width: 50px;
   order: 0;
-  margin-right:100px;
+  margin-right: 100px;
   text-align: center;
-
 `;
 
 const TotalBoxCalories = styled.div`
@@ -241,7 +242,6 @@ const TotalBoxCalories = styled.div`
   order: 1;
   margin-left: 0px;
   text-align: center;
-
 `;
 
 const TotalBoxProtein = styled.div`
@@ -249,7 +249,6 @@ const TotalBoxProtein = styled.div`
   width: 42.5px;
   order: 2;
   text-align: center;
-
 `;
 
 const TotalBoxCarbs = styled.div`
@@ -257,7 +256,6 @@ const TotalBoxCarbs = styled.div`
   width: 42.5px;
   order: 3;
   text-align: center;
-
 `;
 
 const TotalBoxFat = styled.div`
@@ -265,7 +263,6 @@ const TotalBoxFat = styled.div`
   width: 42.5px;
   order: 4;
   text-align: center;
-
 `;
 
 function Dashboard() {
@@ -345,19 +342,21 @@ function Dashboard() {
           </MacrosBoxContentDelete>
         </MacrosBoxContent>
       </Macros>,
+
     ]);
 
     const handleDeleteMacroDiv = (id) => {
       setMacroDivs((prevMacroDivs) =>
         prevMacroDivs.filter((div) => div.key !== id)
       );
-    };
+    }
 
     setTotalProtein((prevTotal) => prevTotal + foodDoc.data.protein); // update total protein
     setTotalCalories((prevTotal) => prevTotal + foodDoc.data.calories);
     setTotalCarbs((prevTotal) => prevTotal + foodDoc.data.carbs);
     setTotalFat((prevTotal) => prevTotal + foodDoc.data.fat);
   };
+
 
   return (
     <StyledWrapper>
@@ -388,21 +387,11 @@ function Dashboard() {
             </MacrosBoxHeader>
             {macroDivs}
             <TotalBox>
-              <TotalBoxTotal>
-              Total:
-              </TotalBoxTotal> 
-              <TotalBoxCalories>
-              {totalCalories}
-              </TotalBoxCalories>
-              <TotalBoxProtein>
-               {totalProtein}
-              </TotalBoxProtein>
-              <TotalBoxCarbs>
-               {totalCarbs}
-              </TotalBoxCarbs>  
-              <TotalBoxFat>
-              {totalFat}
-              </TotalBoxFat>{" "}
+              <TotalBoxTotal>Total:</TotalBoxTotal>
+              <TotalBoxCalories>{totalCalories}</TotalBoxCalories>
+              <TotalBoxProtein>{totalProtein}</TotalBoxProtein>
+              <TotalBoxCarbs>{totalCarbs}</TotalBoxCarbs>
+              <TotalBoxFat>{totalFat}</TotalBoxFat>{" "}
             </TotalBox>{" "}
             {/* display total protein */}
           </MacrosBox>
