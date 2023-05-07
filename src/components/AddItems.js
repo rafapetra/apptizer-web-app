@@ -78,14 +78,11 @@ function AddItems() {
 
   
   useEffect(() => {
-    const user = auth.currentUser;
-    if (!user) {
-      setErrorMessage("User not logged in.");
-      return;
-    }
-    const uid = user.uid;
-    const userDocRef = doc(db, "users", uid);
-    const userFoodsCollectionRef = collection(userDocRef, "foods");
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        const uid = user.uid;
+        const userDocRef = doc(db, "users", uid);
+        const userFoodsCollectionRef = collection(userDocRef, "foods");
 
     getDocs(userFoodsCollectionRef)
       .then((querySnapshot) => {
@@ -98,7 +95,13 @@ function AddItems() {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+    } else {
+      setErrorMessage("User not logged in.");
+    }
+  });
+
+  return unsubscribe;
+}, []);
 
   const currentlyVisibleState = formVisibleOnPage ? (
     <NewFoodForm onNewFoodCreation={handleAddingNewFood} />

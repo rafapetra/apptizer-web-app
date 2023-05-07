@@ -56,14 +56,11 @@ function Dashboard() {
   
 
   useEffect(() => {
-    const user = auth.currentUser;
-    if (!user) {
-      setErrorMessage("User not logged in.");
-      return;
-    }
-    const uid = user.uid;
-    const userDocRef = doc(db, "users", uid);
-    const userFoodsCollectionRef = collection(userDocRef, "foods");
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        const uid = user.uid;
+        const userDocRef = doc(db, "users", uid);
+        const userFoodsCollectionRef = collection(userDocRef, "foods");
 
     getDocs(userFoodsCollectionRef)
       .then((querySnapshot) => {
@@ -76,7 +73,13 @@ function Dashboard() {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+    } else {
+      setErrorMessage("User not logged in.");
+    }
+  });
+
+  return unsubscribe;
+}, []);
 
     // Load macroDivs from localStorage when the component mounts
     useEffect(() => {
