@@ -97,6 +97,8 @@ width: 200px;
 font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 color: #e6edff;
 font-size: 8pt;
+padding: 2px;
+
 }
 
 .dropdownDashboard {
@@ -108,6 +110,8 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 color: #e6edff;
 font-size: 8pt;
 margin: 8px;
+margin-bottom: 30px;
+padding: 2px;
 }
 
 input:-webkit-autofill,

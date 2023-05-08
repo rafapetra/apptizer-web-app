@@ -11,6 +11,7 @@ import SplashPage from "./SplashPage.js";
 
 const StyledWrapper = styled.div`
   display: flex;
+  color: #ffffff;
   flex-direction: column;
   width: 300px;
   height: 400px;

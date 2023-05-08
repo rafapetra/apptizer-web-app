@@ -19,6 +19,7 @@ width: 80px;
 height: auto;
 border: solid .8px #ffffff;
 border-radius: 16pt;
+margin-left: 73px;
 margin-top: 20px;
 margin-bottom: auto;
 color: #000000;

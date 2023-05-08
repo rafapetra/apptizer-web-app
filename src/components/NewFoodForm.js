@@ -52,7 +52,7 @@ const NewFoodFormBox = styled.div`
   flex-direction: row;
   background: #447cfc;
   color: #ffffff;
-  padding: 0px;
+  padding: 6px;
   border: #e6edff solid 0.8px;
   border-radius: 0pt;
 `;
@@ -71,7 +71,7 @@ const LeftColumnRow = styled.div`
   color: #ffffff;
   background: #447cfc;
   text-align: right;
-  padding: 5px;
+  padding: 6px;
   margin-bottom: 5px;
 `;
 
