@@ -50,13 +50,12 @@ const StyledWrapper = styled.div`
   }
 `;
 
-
 function AddItems() {
   const [formVisibleOnPage, setFormVisibleOnPage] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [foodDocs, setFoodDocs] = useState([]);
   const [selectedFoodId, setSelectedFoodId] = useState("");
-  
+
   const handleAddingNewFood = async (newFoodData) => {
     const user = auth.currentUser;
     const uid = user.uid;
@@ -76,7 +75,6 @@ function AddItems() {
     setFormVisibleOnPage(false);
   };
 
-  
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -84,24 +82,24 @@ function AddItems() {
         const userDocRef = doc(db, "users", uid);
         const userFoodsCollectionRef = collection(userDocRef, "foods");
 
-    getDocs(userFoodsCollectionRef)
-      .then((querySnapshot) => {
-        const docs = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }));
-        setFoodDocs(docs);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    } else {
-      setErrorMessage("User not logged in.");
-    }
-  });
+        getDocs(userFoodsCollectionRef)
+          .then((querySnapshot) => {
+            const docs = querySnapshot.docs.map((doc) => ({
+              id: doc.id,
+              data: doc.data(),
+            }));
+            setFoodDocs(docs);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      } else {
+        setErrorMessage("User not logged in.");
+      }
+    });
 
-  return unsubscribe;
-}, []);
+    return unsubscribe;
+  }, []);
 
   const currentlyVisibleState = formVisibleOnPage ? (
     <NewFoodForm onNewFoodCreation={handleAddingNewFood} />
@@ -115,15 +113,17 @@ function AddItems() {
       setErrorMessage("User not logged in.");
       return;
     }
-  
+
     const uid = user.uid;
     const userDocRef = doc(db, "users", uid);
     const userFoodsCollectionRef = collection(userDocRef, "foods");
-  
+
     try {
       await deleteDoc(doc(userFoodsCollectionRef, selectedFoodId));
       setSelectedFoodId("");
-      setFoodDocs((prevDocs) => prevDocs.filter((doc) => doc.id !== selectedFoodId));
+      setFoodDocs((prevDocs) =>
+        prevDocs.filter((doc) => doc.id !== selectedFoodId)
+      );
     } catch (error) {
       console.error(error);
     }
@@ -140,11 +140,14 @@ function AddItems() {
         <React.Fragment>
           <div className="content">
             {currentlyVisibleState}
-
             Your current items:
-             <select className="dropdown" value={selectedFoodId} onChange={(e) => setSelectedFoodId(e.target.value)}>
+            <select
+              className="dropdown"
+              value={selectedFoodId}
+              onChange={(e) => setSelectedFoodId(e.target.value)}
+            >
               {foodDocs.map((doc) => (
-                       <option key={doc.id} value={doc.id}>
+                <option key={doc.id} value={doc.id}>
                   {doc.data.name}
                 </option>
               ))}

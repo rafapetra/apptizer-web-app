@@ -92,6 +92,21 @@ function Dashboard() {
       localStorage.setItem('macroDivs', JSON.stringify(macroDivs));
     }, [macroDivs]);
 
+
+    useEffect(() => {
+      // Calculate the total sum of each macro
+      const totalProtein = macroDivs.reduce((acc, curr) => acc + curr.protein, 0);
+      const totalCalories = macroDivs.reduce((acc, curr) => acc + curr.calories, 0);
+      const totalCarbs = macroDivs.reduce((acc, curr) => acc + curr.carbs, 0);
+      const totalFat = macroDivs.reduce((acc, curr) => acc + curr.fat, 0);
+    
+      // Update the state variables for the total sum of each macro
+      setTotalProtein(totalProtein);
+      setTotalCalories(totalCalories);
+      setTotalCarbs(totalCarbs);
+      setTotalFat(totalFat);
+    }, [macroDivs]);
+    
   const handleFoodChange = (event) => {
     setSelectedFood(event.target.value);
   };
@@ -120,9 +135,10 @@ function Dashboard() {
         hour12: true,
         hourCycle: "h12",
       }),
-    };
+    };                        
   
     setMacroDivs([...macroDivs, newMacroDiv]);
+
     setTotalProtein((prevTotal) => prevTotal + foodDoc.data.protein); // update total protein
     setTotalCalories((prevTotal) => prevTotal + foodDoc.data.calories);
     setTotalCarbs((prevTotal) => prevTotal + foodDoc.data.carbs);
