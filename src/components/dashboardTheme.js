@@ -87,6 +87,7 @@ const MacrosBox = styled.div`
   &:hover a {
     text-decoration: none;
   }
+
 `;
 
 const MacrosBoxHeader = styled.div`
@@ -220,16 +221,20 @@ const TotalBox = styled.div`
   order: 2;
   display: flex;
   flex-direction: row;
+  margin-top: 10px;
+  border-top: solid 0.5px #bedc90;
+
 `;
 
 const TotalBoxTotal = styled.div`
   background-color: #447cfc;
-  width: 50px;
+  width: 150px;
   order: 0;
-  margin-right: 100px;
-  text-align: center;
+  text-align: right;
   color:#f1d3d6;
   font-size:10pt;
+  padding-right: 10px;
+
 `;
 
 const TotalBoxCalories = styled.div`
@@ -282,9 +287,10 @@ const GoalsBoxGoal = styled.div`
 background-color: #447cfc;
 width: 150px;
 order: 0;
-text-align: left;
-padding-left:10px;
+text-align: right;
+font-size:10pt;
 color:#bedc90;
+padding-right: 10px;
 `;
 
 const GoalsBoxCal = styled.div`
