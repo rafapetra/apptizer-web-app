@@ -341,6 +341,15 @@ text-align: center;
 }
 `;
 
+const PantryBox = styled.div`
+  display: flex;
+  height: auto;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 17px;
+
+`;
+
 export {
   StyledWrapper,
   Button,
@@ -376,4 +385,5 @@ export {
   GoalsBoxCarbs,
   GoalsBoxFat,
   StyledMacroGoalInput,
+  PantryBox
 };

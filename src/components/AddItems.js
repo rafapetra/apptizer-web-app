@@ -11,6 +11,7 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import NewFoodForm from "./NewFoodForm.js";
+import salad from "../images/salad.png";
 
 const Button = styled.button`
 background-color: #ffffff;
@@ -43,12 +44,46 @@ const StyledWrapper = styled.div`
   line-height: 25pt;
   color: #ffffff;
   width: auto;
-  margin-left: 20px;
-  padding-bottom: 10px;
-  background-color: #447cfc;
+  background: #447cfc;
   &:hover a {
     text-decoration: none;
   }
+`;
+
+const DeleteBox = styled.div`
+  order: 2;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ManageBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+`;
+
+const BoxHeader = styled.div`
+  order: 0;
+  height: 60px;
+`;
+
+const Content = styled.div`
+  order: 1;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: auto;
+  gap: 15px;
+`;
+
+const HeaderDiv = styled.div`
+  margin-top: 15px;
+  gap: 15px;
+`;
+
+const HeaderTitle = styled.span`
+  font-size: 20pt;
 `;
 
 function AddItems() {
@@ -131,33 +166,56 @@ function AddItems() {
   };
 
   return (
-    <StyledWrapper>
-      {" "}
-      {auth.currentUser == null ? (
-        <React.Fragment>
-          {errorMessage && <div>{errorMessage}</div>}
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <div className="content">
-            {currentlyVisibleState}
-            Your current items:
-            <select
-              className="dropdown"
-              value={selectedFoodId}
-              onChange={(e) => setSelectedFoodId(e.target.value)}
-            >
-              {foodDocs.map((doc) => (
-                <option key={doc.id} value={doc.id}>
-                  {doc.data.name}
-                </option>
-              ))}
-            </select>
-            <Button onClick={handleDeleteSelectedFood}>Delete</Button>
-          </div>
-        </React.Fragment>
-      )}
-    </StyledWrapper>
+    <div className="content">
+      <StyledWrapper>
+        {" "}
+        {auth.currentUser == null ? (
+          <React.Fragment>
+            {errorMessage && <div>{errorMessage}</div>}
+          </React.Fragment>
+        ) : (
+          <ManageBox>
+            <BoxHeader>
+              <HeaderDiv>
+                <img
+                  src={salad}
+                  alt="My image"
+                  style={{ width: "30px", height: "auto" }}
+                />
+                <HeaderTitle
+                  style={{
+                    fontFamily: "'Playfair Display', sans-serif",
+                    fontSize: "1.3rem",
+                    letterSpacing: "0.04rem",
+                    marginLeft: "5px",
+                  }}
+                >
+                  Add new items to your list.
+                </HeaderTitle>
+              </HeaderDiv>
+            </BoxHeader>
+            <Content>
+              {currentlyVisibleState}
+              <DeleteBox>
+                Your current items:
+                <select
+                  className="dropdown"
+                  value={selectedFoodId}
+                  onChange={(e) => setSelectedFoodId(e.target.value)}
+                >
+                  {foodDocs.map((doc) => (
+                    <option key={doc.id} value={doc.id}>
+                      {doc.data.name}
+                    </option>
+                  ))}
+                </select>
+                <Button onClick={handleDeleteSelectedFood}>Delete</Button>
+              </DeleteBox>
+            </Content>
+          </ManageBox>
+        )}
+      </StyledWrapper>
+    </div>
   );
 }
 

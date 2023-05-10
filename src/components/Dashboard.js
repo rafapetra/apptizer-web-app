@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import { auth } from "./../firebase.js";
 import { db } from "./../firebase.js";
+import myImage from "../images/food.png";
+
 import {
   collection,
   addDoc,
@@ -46,6 +47,7 @@ import {
   GoalsBoxCarbs,
   GoalsBoxFat,
   StyledMacroGoalInput,
+  PantryBox
 } from "./dashboardTheme.js";
 
 function Dashboard() {
@@ -59,7 +61,7 @@ function Dashboard() {
   const [totalCalories, setTotalCalories] = useState(0);
   const [totalCarbs, setTotalCarbs] = useState(0);
   const [totalFat, setTotalFat] = useState(0);
-
+  const [isClean, setIsClean] = useState(false);
   const [macroGoals, setMacroGoals] = useState(
     JSON.parse(localStorage.getItem("macroGoals")) || {
       protein: 0,
@@ -145,7 +147,7 @@ function Dashboard() {
     const timestamp = Date.now(); // get the current timestamp in milliseconds
 
     const newMacroDiv = {
-      id: foodDoc.id,
+      id: foodDoc.id + timestamp,
       name: foodDoc.data.name,
       calories: foodDoc.data.calories,
       protein: foodDoc.data.protein,
@@ -173,6 +175,7 @@ function Dashboard() {
     );
   };
 
+  
   const MacroGoalInput = ({ macro, value, onChange }) => {
     return (
       <label>
@@ -181,6 +184,16 @@ function Dashboard() {
     );
   };
 
+  const handleCleanMacroDivs = () => {
+    setMacroDivs([]);
+    setTotalProtein(0);
+    setTotalCalories(0);
+    setTotalCarbs(0);
+    setTotalFat(0);
+    setIsClean(true);
+  };
+
+  
   return (
     <StyledWrapper>
       {auth.currentUser == null ? (
@@ -199,6 +212,9 @@ function Dashboard() {
             Dashboard
           </HeaderTitle>
 
+<PantryBox>
+          <img src={myImage} alt="My image" style={{ width: "30px", height: "100%"}}/>
+
           <select className="dropdownDashboard" onChange={handleFoodChange}>
             <option value="">From your pantry:</option>
             {foodDocs.map((doc) => (
@@ -208,6 +224,9 @@ function Dashboard() {
             ))}
           </select>
           <Button onClick={handleAddMacroDiv}>Add</Button>
+  {macroDivs.length > 0 && (
+    <Button onClick={handleCleanMacroDivs}>Clean</Button>
+  )}          </PantryBox>
 
           <MacrosBox>
             <MacrosBoxHeader>
@@ -251,6 +270,7 @@ function Dashboard() {
               <TotalBoxFat>{totalFat}</TotalBoxFat>{" "}
             </TotalBox>{" "}
             {/* display total protein */}
+            
           </MacrosBox>
 
           <GoalsBox>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { db, auth, app, getDb } from "./../firebase.js";
+
 import {
   collection,
   addDoc,
@@ -10,6 +11,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 import styled from "styled-components";
+import Header from "./Header.js";
 
 const Input = styled.input`
   padding: 0.5em;
@@ -40,9 +42,8 @@ const Input = styled.input`
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 7px;
   background: #447cfc;
-  margin-top: -30px;
   gap: 13px;
 `;
 
@@ -108,12 +109,6 @@ padding: 4px;
   }
 `;
 
-
-
-const HeaderTitle = styled.span`
-  font-size: 20pt;
-`;
-
 function NewFoodForm(props) {
   const [foodItems, setFoodItems] = useState([]);
 
@@ -154,16 +149,6 @@ function NewFoodForm(props) {
   } else if (auth.currentUser != null) {
     return (
       <StyledWrapper>
-        <HeaderTitle
-          style={{
-            fontFamily: "'Playfair Display', sans-serif",
-            fontSize: "1.5rem",
-            letterSpacing: "0.07rem",
-          }}
-        >
-          Add new items to your list.
-        </HeaderTitle>
-
         <NewFoodFormBox>
           <LeftColumn>
             <LeftColumnRow>Name:</LeftColumnRow>
