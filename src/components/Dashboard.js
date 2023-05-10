@@ -47,7 +47,13 @@ import {
   GoalsBoxCarbs,
   GoalsBoxFat,
   StyledMacroGoalInput,
-  PantryBox
+  PantryBox,
+  DifferencesBox,
+  DifferencesBoxTotal,
+  DifferencesBoxCalories,
+  DifferencesBoxProtein,
+  DifferencesBoxCarbs,
+  DifferencesBoxFat,
 } from "./dashboardTheme.js";
 
 function Dashboard() {
@@ -62,6 +68,9 @@ function Dashboard() {
   const [totalCarbs, setTotalCarbs] = useState(0);
   const [totalFat, setTotalFat] = useState(0);
   const [isClean, setIsClean] = useState(false);
+
+
+
   const [macroGoals, setMacroGoals] = useState(
     JSON.parse(localStorage.getItem("macroGoals")) || {
       protein: 0,
@@ -70,6 +79,11 @@ function Dashboard() {
       fat: 0,
     }
   );
+
+  const differenceCalories = macroGoals.calories - totalCalories;
+const differenceProtein = macroGoals.protein - totalProtein;
+const differenceCarbs = macroGoals.carbs - totalCarbs;
+const differenceFat = macroGoals.fat - totalFat;
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -270,6 +284,8 @@ function Dashboard() {
               <TotalBoxFat>{totalFat}</TotalBoxFat>{" "}
             </TotalBox>{" "}
             {/* display total protein */}
+
+  
             
           </MacrosBox>
 
@@ -328,6 +344,13 @@ function Dashboard() {
               />
             </GoalsBoxFat>
           </GoalsBox>
+          <DifferencesBox>
+  <DifferencesBoxTotal>Remaining:</DifferencesBoxTotal>
+  <DifferencesBoxCalories>{differenceCalories}</DifferencesBoxCalories>
+  <DifferencesBoxProtein>{differenceProtein}</DifferencesBoxProtein>
+  <DifferencesBoxCarbs>{differenceCarbs}</DifferencesBoxCarbs>
+  <DifferencesBoxFat>{differenceFat}</DifferencesBoxFat>
+</DifferencesBox>
         </React.Fragment>
       )}
     </StyledWrapper>

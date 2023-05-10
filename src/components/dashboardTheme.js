@@ -222,8 +222,58 @@ const TotalBox = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 10px;
+  border-bottom: solid 0.5px #bedc90;
+
+`;
+
+const DifferencesBox = styled.div`
+  background-color: #447cfc;
+  order: 2;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
   border-top: solid 0.5px #bedc90;
 
+`;
+
+const DifferencesBoxTotal = styled.div`
+  background-color: #447cfc;
+  width: 150px;
+  order: 0;
+  text-align: right;
+  color:#f1d3d6;
+  font-size:10pt;
+  padding-right: 10px;
+
+`;
+
+const DifferencesBoxCalories = styled.div`
+  background-color: #447cfc;
+  width: 42.5px;
+  order: 1;
+  margin-left: 0px;
+  text-align: center;
+`;
+
+const DifferencesBoxCarbs = styled.div`
+  background-color: #447cfc;
+  width: 42.5px;
+  order: 3;
+  text-align: center;
+`;
+
+const DifferencesBoxFat = styled.div`
+  background-color: #447cfc;
+  width: 42.5px;
+  order: 4;
+  text-align: center;
+`;
+
+const DifferencesBoxProtein = styled.div`
+  background-color: #447cfc;
+  width: 42.5px;
+  order: 2;
+  text-align: center;
 `;
 
 const TotalBoxTotal = styled.div`
@@ -385,5 +435,11 @@ export {
   GoalsBoxCarbs,
   GoalsBoxFat,
   StyledMacroGoalInput,
-  PantryBox
+  PantryBox,
+  DifferencesBox,
+  DifferencesBoxTotal,
+  DifferencesBoxCalories,
+  DifferencesBoxProtein,
+  DifferencesBoxCarbs,
+  DifferencesBoxFat,
 };
