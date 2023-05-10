@@ -161,7 +161,7 @@ function NewFoodForm(props) {
           <RightColumn>
             <form onSubmit={handleNewFoodFormSubmission}>
               <RightColumnRow>
-                <Input type="text" name="name" placeholder="Morning Shake" />
+                <Input type="text" name="name" placeholder="Banana Smoothie" />
               </RightColumnRow>
               <RightColumnRow>
                 {" "}

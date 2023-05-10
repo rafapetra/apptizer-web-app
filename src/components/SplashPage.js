@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const StyledWrapper = styled.div`
-
-  font-size: 8pt;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+    font-size: 8pt;
   text-align: center;
   line-height: 25pt;
   color: #ffffff;
   width: auto;
-  margin-top: 50px;
-  margin-left: 90px;
   padding-bottom: 10px;
   background-color: #447cfc;
   &:hover a {
@@ -20,6 +20,12 @@ const StyledWrapper = styled.div`
   }
 `;
 
+const Content = styled.div`
+margin: auto;
+margin-left: 50%;
+margin-top: 20px;
+width: 100%;
+`;
 const Button = styled.button`
 background-color: #ffffff;
 font-size: 7pt;
@@ -61,6 +67,7 @@ function SplashPage() {
   return (
    
        <StyledWrapper>
+        <Content>
           <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "4.5rem"}}>
             Feels good</HeaderTitle><br />
             <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "3.2rem"}}>
@@ -68,6 +75,7 @@ function SplashPage() {
           <span>Discover your balance, keep track of it.</span><br />
           <Link to="/signup"> <Button>Start tracking</Button></Link>
           <Hr></Hr>
+          </Content>
           </StyledWrapper>
    
   );

@@ -61,7 +61,7 @@ color: #ffffff;
 
 const HeaderTitle = styled.div`
   font-size: 40pt;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 `;
 
 const Macros = styled.div`
@@ -231,8 +231,7 @@ const DifferencesBox = styled.div`
   order: 2;
   display: flex;
   flex-direction: row;
-  margin-top: 10px;
-  border-top: solid 0.5px #bedc90;
+  margin-top: 0px;
 
 `;
 
@@ -324,51 +323,82 @@ const GoalsBox = styled.div`
   line-height: 25pt;
   color: #ffffff;
   width: auto;
-  gap: 2px;
+  gap: 27px;
   margin-top: 0px;
   margin-left: 0px;
   padding-bottom: 0px;
   &:hover a {
     text-decoration: none;
   }
+  justify-content: center;
+`;
+
+const DailyHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-size: 10pt;
+  line-height: 25pt;
+  color: #ffffff;
+  width: auto;
+  gap: 5px;
+  margin-top: 0px;
+  margin-left: 0px;
+  padding-bottom: 0px;
+  &:hover a {
+    text-decoration: none;
+  }
+  gap: 27px;
+  justify-content: center;
 `;
 
 const GoalsBoxGoal = styled.div`
 background-color: #447cfc;
-width: 150px;
+width: 45px;
 order: 0;
-text-align: right;
+text-align: center;
 font-size:10pt;
 color:#bedc90;
-padding-right: 10px;
+padding-right: 9px;
+
 `;
 
 const GoalsBoxCal = styled.div`
 background-color: #447cfc;
 width: 42px;
 order: 1;
-text-align: left;
+text-align: center;
+color: #ffe891;
+font-size: 9pt;
 `;
 
 const GoalsBoxProtein = styled.div`
 background-color: #447cfc;
 width: 42x;
 order: 2;
-text-align: left;
+text-align: center;
+font-size: 9pt;
+color: #ffe891;
+
 `;
 
 const GoalsBoxCarbs = styled.div`
 background-color: #447cfc;
 width: 42px;
 order: 3;
-text-align: left;
+text-align: center;
+font-size: 9pt;
+color: #ffe891;
+
 `;
 
 const GoalsBoxFat = styled.div`
 background-color: #447cfc;
 width: 42px;
 order: 4;
-text-align: left;
+text-align: center;
+font-size: 9pt;
+color: #ffe891;
+
 `;
 
 const StyledMacroGoalInput = styled.input`
@@ -395,10 +425,23 @@ const PantryBox = styled.div`
   display: flex;
   height: auto;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
   margin-bottom: 17px;
 
 `;
+
+const DailyBox = styled.div`
+width: 315px;
+background: #447cfc;
+border: solid 0.8px #e6edff;
+border-radius: 6pt;
+padding: 22px;
+padding-top: 5px;
+padding-bottom: 5px;
+margin: 8px;
+margin-bottom: 30px;
+`;
+
 
 export {
   StyledWrapper,
@@ -442,4 +485,6 @@ export {
   DifferencesBoxProtein,
   DifferencesBoxCarbs,
   DifferencesBoxFat,
+  DailyBox,
+  DailyHeader
 };

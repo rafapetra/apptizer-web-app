@@ -54,6 +54,8 @@ import {
   DifferencesBoxProtein,
   DifferencesBoxCarbs,
   DifferencesBoxFat,
+  DailyBox,
+  DailyHeader,
 } from "./dashboardTheme.js";
 
 function Dashboard() {
@@ -69,7 +71,6 @@ function Dashboard() {
   const [totalFat, setTotalFat] = useState(0);
   const [isClean, setIsClean] = useState(false);
   const [username, setUsername] = useState("");
-
 
   const [macroGoals, setMacroGoals] = useState(
     JSON.parse(localStorage.getItem("macroGoals")) || {
@@ -93,16 +94,15 @@ function Dashboard() {
         const userDocRef = doc(db, "users", uid);
 
         getDoc(userDocRef)
-        .then((doc) => {
-          if (doc.exists()) {
-            const userData = doc.data();
-            setUsername(displayName);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-
+          .then((doc) => {
+            if (doc.exists()) {
+              const userData = doc.data();
+              setUsername(displayName);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
 
         const userFoodsCollectionRef = collection(userDocRef, "foods");
 
@@ -235,8 +235,74 @@ function Dashboard() {
               letterSpacing: "0.07rem",
             }}
           >
-Welcome, {username}
+            Welcome, {username}
           </HeaderTitle>
+
+          <DailyBox>
+            Your daily goals:
+            <DailyHeader>
+              <GoalsBoxCal>Calories</GoalsBoxCal>
+              <GoalsBoxProtein>Protein</GoalsBoxProtein>
+              <GoalsBoxCarbs>Carbs</GoalsBoxCarbs>
+              <GoalsBoxFat>Fat</GoalsBoxFat>
+            </DailyHeader>
+
+            <GoalsBox>
+
+              <GoalsBoxCal>
+                <StyledMacroGoalInput
+                  macro="Calories"
+                  value={macroGoals.calories}
+                  onChange={(event) =>
+                    setMacroGoals({
+                      ...macroGoals,
+                      calories: Number(event.target.value),
+                    })
+                  }
+                />
+              </GoalsBoxCal>
+
+              <GoalsBoxProtein>
+                <StyledMacroGoalInput
+                  macro="Protein"
+                  value={macroGoals.protein}
+                  onChange={(event) =>
+                    setMacroGoals({
+                      ...macroGoals,
+                      protein: Number(event.target.value),
+                    })
+                  }
+                />
+              </GoalsBoxProtein>
+
+              <GoalsBoxCarbs>
+                <StyledMacroGoalInput
+                  macro="Carbs"
+                  value={macroGoals.carbs}
+                  onChange={(event) =>
+                    setMacroGoals({
+                      ...macroGoals,
+                      carbs: Number(event.target.value),
+                    })
+                  }
+                />
+              </GoalsBoxCarbs>
+
+              <GoalsBoxFat>
+                <StyledMacroGoalInput
+                  macro="Fat"
+                  value={macroGoals.fat}
+                  onChange={(event) =>
+                    setMacroGoals({
+                      ...macroGoals,
+                      fat: Number(event.target.value),
+                    })
+                  }
+                />
+              </GoalsBoxFat>
+            </GoalsBox>
+            <span style={{ fontStyle: 'italic' , fontSize: '9px'}}>*click on each goal number to edit.</span> 
+          </DailyBox>
 
           <PantryBox>
             <img
@@ -302,61 +368,6 @@ Welcome, {username}
             {/* display total protein */}
           </MacrosBox>
 
-          <GoalsBox>
-            <GoalsBoxGoal>Goals:</GoalsBoxGoal>
-
-            <GoalsBoxCal>
-              <StyledMacroGoalInput
-                macro="Calories"
-                value={macroGoals.calories}
-                onChange={(event) =>
-                  setMacroGoals({
-                    ...macroGoals,
-                    calories: Number(event.target.value),
-                  })
-                }
-              />
-            </GoalsBoxCal>
-
-            <GoalsBoxProtein>
-              <StyledMacroGoalInput
-                macro="Protein"
-                value={macroGoals.protein}
-                onChange={(event) =>
-                  setMacroGoals({
-                    ...macroGoals,
-                    protein: Number(event.target.value),
-                  })
-                }
-              />
-            </GoalsBoxProtein>
-
-            <GoalsBoxCarbs>
-              <StyledMacroGoalInput
-                macro="Carbs"
-                value={macroGoals.carbs}
-                onChange={(event) =>
-                  setMacroGoals({
-                    ...macroGoals,
-                    carbs: Number(event.target.value),
-                  })
-                }
-              />
-            </GoalsBoxCarbs>
-
-            <GoalsBoxFat>
-              <StyledMacroGoalInput
-                macro="Fat"
-                value={macroGoals.fat}
-                onChange={(event) =>
-                  setMacroGoals({
-                    ...macroGoals,
-                    fat: Number(event.target.value),
-                  })
-                }
-              />
-            </GoalsBoxFat>
-          </GoalsBox>
           <DifferencesBox>
             <DifferencesBoxTotal>Remaining:</DifferencesBoxTotal>
             <DifferencesBoxCalories>
