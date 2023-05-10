@@ -68,7 +68,7 @@ function Dashboard() {
   const [totalCarbs, setTotalCarbs] = useState(0);
   const [totalFat, setTotalFat] = useState(0);
   const [isClean, setIsClean] = useState(false);
-
+  const [username, setUsername] = useState("");
 
 
   const [macroGoals, setMacroGoals] = useState(
@@ -81,15 +81,29 @@ function Dashboard() {
   );
 
   const differenceCalories = macroGoals.calories - totalCalories;
-const differenceProtein = macroGoals.protein - totalProtein;
-const differenceCarbs = macroGoals.carbs - totalCarbs;
-const differenceFat = macroGoals.fat - totalFat;
+  const differenceProtein = macroGoals.protein - totalProtein;
+  const differenceCarbs = macroGoals.carbs - totalCarbs;
+  const differenceFat = macroGoals.fat - totalFat;
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         const uid = user.uid;
+        const displayName = user.displayName;
         const userDocRef = doc(db, "users", uid);
+
+        getDoc(userDocRef)
+        .then((doc) => {
+          if (doc.exists()) {
+            const userData = doc.data();
+            setUsername(displayName);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+
         const userFoodsCollectionRef = collection(userDocRef, "foods");
 
         getDocs(userFoodsCollectionRef)
@@ -189,7 +203,6 @@ const differenceFat = macroGoals.fat - totalFat;
     );
   };
 
-  
   const MacroGoalInput = ({ macro, value, onChange }) => {
     return (
       <label>
@@ -207,7 +220,6 @@ const differenceFat = macroGoals.fat - totalFat;
     setIsClean(true);
   };
 
-  
   return (
     <StyledWrapper>
       {auth.currentUser == null ? (
@@ -223,24 +235,28 @@ const differenceFat = macroGoals.fat - totalFat;
               letterSpacing: "0.07rem",
             }}
           >
-            Dashboard
+Welcome, {username}
           </HeaderTitle>
 
-<PantryBox>
-          <img src={myImage} alt="My image" style={{ width: "30px", height: "100%"}}/>
-
-          <select className="dropdownDashboard" onChange={handleFoodChange}>
-            <option value="">From your pantry:</option>
-            {foodDocs.map((doc) => (
-              <option key={doc.id} value={doc.id}>
-                {doc.data.name}
-              </option>
-            ))}
-          </select>
-          <Button onClick={handleAddMacroDiv}>Add</Button>
-  {macroDivs.length > 0 && (
-    <Button onClick={handleCleanMacroDivs}>Clean</Button>
-  )}          </PantryBox>
+          <PantryBox>
+            <img
+              src={myImage}
+              alt="My image"
+              style={{ width: "30px", height: "100%" }}
+            />
+            <select className="dropdownDashboard" onChange={handleFoodChange}>
+              <option value="">From your pantry:</option>
+              {foodDocs.map((doc) => (
+                <option key={doc.id} value={doc.id}>
+                  {doc.data.name}
+                </option>
+              ))}
+            </select>
+            <Button onClick={handleAddMacroDiv}>Add</Button>
+            {macroDivs.length > 0 && (
+              <Button onClick={handleCleanMacroDivs}>Clean</Button>
+            )}{" "}
+          </PantryBox>
 
           <MacrosBox>
             <MacrosBoxHeader>
@@ -284,9 +300,6 @@ const differenceFat = macroGoals.fat - totalFat;
               <TotalBoxFat>{totalFat}</TotalBoxFat>{" "}
             </TotalBox>{" "}
             {/* display total protein */}
-
-  
-            
           </MacrosBox>
 
           <GoalsBox>
@@ -345,12 +358,14 @@ const differenceFat = macroGoals.fat - totalFat;
             </GoalsBoxFat>
           </GoalsBox>
           <DifferencesBox>
-  <DifferencesBoxTotal>Remaining:</DifferencesBoxTotal>
-  <DifferencesBoxCalories>{differenceCalories}</DifferencesBoxCalories>
-  <DifferencesBoxProtein>{differenceProtein}</DifferencesBoxProtein>
-  <DifferencesBoxCarbs>{differenceCarbs}</DifferencesBoxCarbs>
-  <DifferencesBoxFat>{differenceFat}</DifferencesBoxFat>
-</DifferencesBox>
+            <DifferencesBoxTotal>Remaining:</DifferencesBoxTotal>
+            <DifferencesBoxCalories>
+              {differenceCalories}
+            </DifferencesBoxCalories>
+            <DifferencesBoxProtein>{differenceProtein}</DifferencesBoxProtein>
+            <DifferencesBoxCarbs>{differenceCarbs}</DifferencesBoxCarbs>
+            <DifferencesBoxFat>{differenceFat}</DifferencesBoxFat>
+          </DifferencesBox>
         </React.Fragment>
       )}
     </StyledWrapper>
