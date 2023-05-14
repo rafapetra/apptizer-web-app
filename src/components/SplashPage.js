@@ -4,15 +4,12 @@ import { Link } from "react-router-dom";
 
 const StyledWrapper = styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
     font-size: 8pt;
   text-align: center;
-  line-height: 25pt;
   color: #ffffff;
-  width: auto;
-  padding-bottom: 10px;
-  background-color: #447cfc;
+  width: 100%;
+  background: #447cfc;
   &:hover a {
     
     text-decoration: none;
@@ -22,10 +19,12 @@ const StyledWrapper = styled.div`
 
 const Content = styled.div`
 margin: auto;
-margin-left: 50%;
 margin-top: 20px;
-width: 100%;
+margin-bottom: 10px;
+width: 90%;
+background: #447cfc;
 `;
+
 const Button = styled.button`
 background-color: #ffffff;
 font-size: 7pt;
@@ -53,8 +52,7 @@ padding: 4px;
 
 const Hr = styled.hr`
 border: solid 0.5px #e6edff;
-width: 50%;
-margin-left:25% !important; margin-right:25% !important;"
+width: 100%;
 `
 
 const HeaderTitle = styled.span`
@@ -62,21 +60,75 @@ const HeaderTitle = styled.span`
   align-self: center;
 `;
 
+const HeaderContent = styled.div`
+  font-size: 7pt;
+  align-self: center;
+  width: 50%;
+  align-self: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+`;
+
+const Container = styled.span`
+display: flex;
+direction: row;
+background: #447cfc;
+width: 90%;
+margin: auto;
+margin-top: 10px;
+margin-bottom: 10px;
+`;
+
+const BoxOne = styled.span`
+order: 1;
+display: flex;
+flex-direction: column;
+width: 240px;
+height: auto;
+background: #447cfc;
+padding: 10px;
+text-align: left;
+gap: 13px;
+border-right: solid .8px #ffffff;
+
+`;
+
+const BoxTitle = styled.div`
+`;
+
+const BoxOneText = styled.span`
+margin-top: 0px;
+font-size: 7pt;
+`;
+
+
 
 function SplashPage() {
   return (
    
        <StyledWrapper>
+
         <Content>
-          <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "4.5rem"}}>
+          <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "5.5rem"}}>
             Feels good</HeaderTitle><br />
-            <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "3.2rem"}}>
+            <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "3.8rem"}}>
             to fuel better.</HeaderTitle><br />
-          <span>Discover your balance, keep track of it.</span><br />
+          <HeaderContent>Achieve your desired fitness and health outcomes with the perfect balance of protein, carbohydrates, and fats for your body.</HeaderContent><br />
           <Link to="/signup"> <Button>Start tracking</Button></Link>
           <Hr></Hr>
           </Content>
-          </StyledWrapper>
+
+          <Container>
+            <BoxOne>
+            <BoxTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "1.7rem"}}>
+            Discover your balance.</BoxTitle>
+            <BoxOneText>
+            Discover your perfect macronutrient balance with a Macro Calculator. Estimate your specific needs based on age, physical characteristics, activity level, and bodyweight goals. </BoxOneText>
+            </BoxOne>
+            
+            </Container>
+            </StyledWrapper>
    
   );
 }

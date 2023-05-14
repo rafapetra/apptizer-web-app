@@ -367,7 +367,7 @@ background-color: #447cfc;
 width: 42px;
 order: 1;
 text-align: center;
-color: #ffe891;
+color: #fce945;
 font-size: 9pt;
 `;
 
@@ -377,7 +377,7 @@ width: 42x;
 order: 2;
 text-align: center;
 font-size: 9pt;
-color: #ffe891;
+color: #fce945;
 
 `;
 
@@ -387,7 +387,7 @@ width: 42px;
 order: 3;
 text-align: center;
 font-size: 9pt;
-color: #ffe891;
+color: #fce945;
 
 `;
 
@@ -397,7 +397,7 @@ width: 42px;
 order: 4;
 text-align: center;
 font-size: 9pt;
-color: #ffe891;
+color: #fce945;
 
 `;
 
@@ -405,17 +405,18 @@ const StyledMacroGoalInput = styled.input`
 width: 42px;
 height: 20px;
 background-color: #447cfc;
-border: solid 0.8px #bedc90;
+border: solid 0.8px #7cfc45;
+border-radius: 3.5px;
 padding: 2px;
 font-size: 8pt;
-color: #bedc90;
+color: #7cfc45;
 text-align: center;
 &:active {
   border: solid 0.8px #e6edff;
 }
 &:focus {
   border: 0;
-  background-color: #edd786;
+  background-color: #fce945;
   color: #000000
 
 }
@@ -433,7 +434,7 @@ const PantryBox = styled.div`
 const DailyBox = styled.div`
 width: 315px;
 background: #447cfc;
-border: solid 0.8px #e6edff;
+border: solid 0.8px #c7d8fe;
 border-radius: 6pt;
 padding: 22px;
 padding-top: 5px;
