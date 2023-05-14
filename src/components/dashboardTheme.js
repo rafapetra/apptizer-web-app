@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
+display: flex;
+flex-direction: row;
   line-height: 25pt;
   color: #ffffff;
   width: auto;
@@ -11,6 +13,21 @@ const StyledWrapper = styled.div`
   &:hover a {
     text-decoration: none;
   }
+`;
+
+const ContainerOne = styled.div`
+order: 0;
+width: 400px;
+background: #447cfc;
+padding: 0px;
+`;
+
+const ContainerTwo = styled.div`
+order: 1;
+color: #ffffff;
+
+background: #447cfc;
+padding: 0px;
 `;
 
 const Button = styled.button`
@@ -432,6 +449,7 @@ const PantryBox = styled.div`
 `;
 
 const DailyBox = styled.div`
+order: 0;
 width: 315px;
 background: #447cfc;
 border: solid 0.8px #c7d8fe;
@@ -441,6 +459,14 @@ padding-top: 5px;
 padding-bottom: 5px;
 margin: 8px;
 margin-bottom: 30px;
+`;
+
+const GraphBox = styled.div`
+order: 1;
+height: 210px;
+width: 300px;
+background: 447cfc;
+font-size: 8pt;
 `;
 
 
@@ -487,5 +513,8 @@ export {
   DifferencesBoxCarbs,
   DifferencesBoxFat,
   DailyBox,
-  DailyHeader
+  ContainerOne,
+  DailyHeader,
+  GraphBox,
+  ContainerTwo,
 };

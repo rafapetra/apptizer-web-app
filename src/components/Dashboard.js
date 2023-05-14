@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ResponsiveRadialBar } from '@nivo/radial-bar'
 import { auth } from "./../firebase.js";
 import { db } from "./../firebase.js";
 import myImage from "../images/food.png";
@@ -56,6 +57,9 @@ import {
   DifferencesBoxFat,
   DailyBox,
   DailyHeader,
+  ContainerOne,
+  GraphBox,
+  ContainerTwo,
 } from "./dashboardTheme.js";
 
 function Dashboard() {
@@ -86,6 +90,57 @@ function Dashboard() {
   const differenceCarbs = macroGoals.carbs - totalCarbs;
   const differenceFat = macroGoals.fat - totalFat;
 
+  const MyResponsiveRadialBar = ({ userGoalsAndMacrosData , data }) => (
+    <ResponsiveRadialBar
+      data={[
+        {
+          id: 'Goals',
+          data: [
+            { x: 'Calories', y: macroGoals.calories },
+          ],
+        },
+        {
+          id: 'Daily',
+          data: [
+            { x: 'DailyCalories', y: data.totalCalories },
+          ],
+        },
+        // Add other data groups as needed
+      ]}
+      valueFormat=">-.2f"
+      endAngle={350}
+      padding={0.4}
+      cornerRadius={2}
+      margin={{ top: 10, right: 170, bottom: 90, left: 0 }}
+      colors={
+        { scheme: 'pastel2' }
+      }
+      borderColor={{
+          from: 'color',
+          modifiers: [
+              [
+                  'darker',
+                  '0.9'
+              ]
+          ]
+      }}
+      enableTracks={true}
+      enableRadialGrid={false}
+      enableCircularGrid={false}
+      radialAxisStart={ null }
+      circularAxisOuter={null}
+      labelsTextColor={{ theme: 'labels.text.fill' }}
+      legends={[]}
+  />
+  );
+
+  const userGoalsAndMacrosData = {
+    protein: macroGoals.protein,
+    calories: macroGoals.calories,
+    carbs: macroGoals.carbs,
+    fat: macroGoals.fat,
+  };
+  
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -222,6 +277,7 @@ function Dashboard() {
 
   return (
     <StyledWrapper>
+                <ContainerOne>
       {auth.currentUser == null ? (
         <React.Fragment>
           {errorMessage && <div>{errorMessage}</div>}
@@ -237,6 +293,7 @@ function Dashboard() {
           >
             Welcome, {username}
           </HeaderTitle>
+
 
           <DailyBox>
             Your daily goals:
@@ -304,6 +361,7 @@ function Dashboard() {
             </span>
           </DailyBox>
 
+        
           <PantryBox>
             <img
               src={myImage}
@@ -379,6 +437,13 @@ function Dashboard() {
           </DifferencesBox>
         </React.Fragment>
       )}
+      </ContainerOne>
+
+      <ContainerTwo>
+      <GraphBox> 
+        Calories
+        <MyResponsiveRadialBar userGoalsAndMacrosData={userGoalsAndMacrosData} data={{ totalProtein , totalCalories , totalCarbs , totalFat }} /> </GraphBox>
+      </ContainerTwo>
     </StyledWrapper>
   );
 }
