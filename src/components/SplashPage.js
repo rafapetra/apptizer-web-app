@@ -5,24 +5,22 @@ import { Link } from "react-router-dom";
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-    font-size: 8pt;
+  font-size: 8pt;
   text-align: center;
   color: #ffffff;
   width: 100%;
   background: #447cfc;
   &:hover a {
-    
     text-decoration: none;
-
   }
 `;
 
 const Content = styled.div`
-margin: auto;
-margin-top: 20px;
-margin-bottom: 10px;
-width: 90%;
-background: #447cfc;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 90%;
+  background: #447cfc;
 `;
 
 const Button = styled.button`
@@ -51,9 +49,9 @@ padding: 4px;
 `;
 
 const Hr = styled.hr`
-border: solid 0.5px #e6edff;
-width: 100%;
-`
+  border: solid 0.5px #e6edff;
+  width: 100%;
+`;
 
 const HeaderTitle = styled.span`
   font-size: 20pt;
@@ -71,65 +69,87 @@ const HeaderContent = styled.div`
 `;
 
 const Container = styled.span`
-display: flex;
-direction: row;
-background: #447cfc;
-width: 90%;
-margin: auto;
-margin-top: 10px;
-margin-bottom: 10px;
+  display: flex;
+  direction: row;
+  background: #447cfc;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `;
 
 const BoxOne = styled.span`
-order: 1;
-display: flex;
-flex-direction: column;
-width: 240px;
-height: auto;
-background: #447cfc;
-padding: 10px;
-text-align: left;
-gap: 13px;
-border-right: solid .8px #ffffff;
-
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: auto;
+  background: #447cfc;
+  padding: 10px;
+  text-align: left;
+  gap: 13px;
+  border-right: solid 0.8px #ffffff;
 `;
 
-const BoxTitle = styled.div`
-`;
+const BoxTitle = styled.div``;
 
 const BoxOneText = styled.span`
-margin-top: 0px;
-font-size: 7pt;
+  margin-top: 0px;
+  font-size: 7pt;
 `;
-
-
 
 function SplashPage() {
   return (
-   
-       <StyledWrapper>
+    <StyledWrapper>
+      <Content>
+        <HeaderTitle
+          style={{
+            fontFamily: "'Playfair Display', sans-serif",
+            fontSize: "5.5rem",
+          }}
+        >
+          Feels good
+        </HeaderTitle>
+        <br />
+        <HeaderTitle
+          style={{
+            fontFamily: "'Playfair Display', sans-serif",
+            fontSize: "3.8rem",
+          }}
+        >
+          to fuel better.
+        </HeaderTitle>
+        <br />
+        <HeaderContent>
+          Achieve your desired fitness and health outcomes with the perfect
+          balance of protein, carbohydrates, and fats for your body.
+        </HeaderContent>
+        <br />
+        <Link to="/signup">
+          {" "}
+          <Button>Start tracking</Button>
+        </Link>
+        <Hr></Hr>
+      </Content>
 
-        <Content>
-          <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "5.5rem"}}>
-            Feels good</HeaderTitle><br />
-            <HeaderTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "3.8rem"}}>
-            to fuel better.</HeaderTitle><br />
-          <HeaderContent>Achieve your desired fitness and health outcomes with the perfect balance of protein, carbohydrates, and fats for your body.</HeaderContent><br />
-          <Link to="/signup"> <Button>Start tracking</Button></Link>
-          <Hr></Hr>
-          </Content>
-
-          <Container>
-            <BoxOne>
-            <BoxTitle style={{ fontFamily: "'Playfair Display', sans-serif", fontSize: "1.7rem"}}>
-            Discover your balance.</BoxTitle>
-            <BoxOneText>
-            Discover your perfect macronutrient balance with a Macro Calculator. Estimate your specific needs based on age, physical characteristics, activity level, and bodyweight goals. </BoxOneText>
-            </BoxOne>
-            
-            </Container>
-            </StyledWrapper>
-   
+      <Container>
+        <BoxOne>
+          <BoxTitle
+            style={{
+              fontFamily: "'Playfair Display', sans-serif",
+              fontSize: "1.7rem",
+            }}
+          >
+            Discover your balance.
+          </BoxTitle>
+          <BoxOneText>
+            Discover your perfect macronutrient balance with a Macro Calculator.
+            Estimate your specific needs based on age, physical characteristics,
+            activity level, and bodyweight goals.{" "}
+          </BoxOneText>
+        </BoxOne>
+      </Container>
+    </StyledWrapper>
   );
 }
 

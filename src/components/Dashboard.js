@@ -246,9 +246,7 @@ function Dashboard() {
               <GoalsBoxCarbs>Carbs</GoalsBoxCarbs>
               <GoalsBoxFat>Fat</GoalsBoxFat>
             </DailyHeader>
-
             <GoalsBox>
-
               <GoalsBoxCal>
                 <StyledMacroGoalInput
                   macro="Calories"
@@ -301,7 +299,9 @@ function Dashboard() {
                 />
               </GoalsBoxFat>
             </GoalsBox>
-            <span style={{ fontStyle: 'italic' , fontSize: '9px'}}>*click on each goal number to edit.</span> 
+            <span style={{ fontStyle: "italic", fontSize: "9px" }}>
+              *click on each goal number to edit.
+            </span>
           </DailyBox>
 
           <PantryBox>

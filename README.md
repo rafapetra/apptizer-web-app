@@ -3,6 +3,7 @@
 Apptize is a web app designed to make tracking your nutrition and macros simple and easy. Input your daily meals and snacks and get detailed breakdowns of your calorie and macronutrient intake. You can save your usual meals as favorites to save time.
 
 ## Table of Contents
+
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
@@ -46,7 +47,6 @@ Apptize is a web app designed to make tracking your nutrition and macros simple 
 
 Thank you for considering contributing to Apptize! If you have any suggestions, bug reports, or feature requests, please submit them to the [GitHub Issues](https://github.com/your-username/apptize/issues) page.
 
-
 ## License
 
 [Specify the license under which your project is distributed.]
@@ -54,7 +54,3 @@ Thank you for considering contributing to Apptize! If you have any suggestions, 
 ## Acknowledgments
 
 [Give credit to any individuals, resources, or third-party libraries that have been helpful in your project.]
-
-
-
-
