@@ -25,9 +25,10 @@ padding: 0px;
 const ContainerTwo = styled.div`
 order: 1;
 color: #ffffff;
-
+width: 100px;
 background: #447cfc;
 padding: 0px;
+margin-left: 40px;
 `;
 
 const Button = styled.button`
@@ -463,10 +464,11 @@ margin-bottom: 30px;
 
 const GraphBox = styled.div`
 order: 1;
-height: 210px;
-width: 300px;
-background: 447cfc;
+height: 80px;
+background: #447cfc;
+text-align: center;
 font-size: 8pt;
+margin-bottom: 15px;
 `;
 
 

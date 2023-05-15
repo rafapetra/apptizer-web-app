@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ResponsiveRadialBar } from '@nivo/radial-bar'
+import { ResponsiveRadialBar } from "@nivo/radial-bar";
 import { auth } from "./../firebase.js";
 import { db } from "./../firebase.js";
 import myImage from "../images/food.png";
@@ -90,20 +90,16 @@ function Dashboard() {
   const differenceCarbs = macroGoals.carbs - totalCarbs;
   const differenceFat = macroGoals.fat - totalFat;
 
-  const MyResponsiveRadialBar = ({ userGoalsAndMacrosData , data }) => (
+  const MyResponsiveRadialBar = ({ userGoalsAndMacrosData, data }) => (
     <ResponsiveRadialBar
       data={[
         {
-          id: 'Goals',
-          data: [
-            { x: 'Calories', y: macroGoals.calories },
-          ],
+          id: "Goals",
+          data: [{ x: "Calories", y: macroGoals.calories }],
         },
         {
-          id: 'Daily',
-          data: [
-            { x: 'DailyCalories', y: data.totalCalories },
-          ],
+          id: "Daily",
+          data: [{ x: "DailyCalories", y: data.totalCalories }],
         },
         // Add other data groups as needed
       ]}
@@ -111,27 +107,115 @@ function Dashboard() {
       endAngle={350}
       padding={0.4}
       cornerRadius={2}
-      margin={{ top: 10, right: 170, bottom: 90, left: 0 }}
-      colors={
-        { scheme: 'pastel2' }
-      }
+      colors={{ scheme: "pastel2" }}
       borderColor={{
-          from: 'color',
-          modifiers: [
-              [
-                  'darker',
-                  '0.9'
-              ]
-          ]
+        from: "color",
+        modifiers: [["darker", "0.9"]],
       }}
       enableTracks={true}
       enableRadialGrid={false}
       enableCircularGrid={false}
-      radialAxisStart={ null }
+      radialAxisStart={null}
       circularAxisOuter={null}
-      labelsTextColor={{ theme: 'labels.text.fill' }}
+      labelsTextColor={{ theme: "labels.text.fill" }}
       legends={[]}
-  />
+    />
+  );
+
+  const MyResponsiveRadialBarProtein = ({ userGoalsAndMacrosData, data }) => (
+    <ResponsiveRadialBar
+      data={[
+        {
+          id: "Goals",
+          data: [{ x: "Protein", y: macroGoals.protein }],
+        },
+        {
+          id: "Daily",
+          data: [{ x: "DailyProtein", y: data.totalProtein }],
+        },
+        // Add other data groups as needed
+      ]}
+      valueFormat=">-.2f"
+      endAngle={350}
+      padding={0.4}
+      cornerRadius={2}
+      colors={{ scheme: "pastel2" }}
+      borderColor={{
+        from: "color",
+        modifiers: [["darker", "0.9"]],
+      }}
+      enableTracks={true}
+      enableRadialGrid={false}
+      enableCircularGrid={false}
+      radialAxisStart={null}
+      circularAxisOuter={null}
+      labelsTextColor={{ theme: "labels.text.fill" }}
+      legends={[]}
+    />
+  );
+
+  const MyResponsiveRadialBarCarbs = ({ userGoalsAndMacrosData, data }) => (
+    <ResponsiveRadialBar
+      data={[
+        {
+          id: "Goals",
+          data: [{ x: "Carbs", y: macroGoals.carbs }],
+        },
+        {
+          id: "Daily",
+          data: [{ x: "DailyCarbs", y: data.totalCarbs }],
+        },
+        // Add other data groups as needed
+      ]}
+      valueFormat=">-.2f"
+      endAngle={350}
+      padding={0.4}
+      cornerRadius={2}
+      colors={{ scheme: "pastel2" }}
+      borderColor={{
+        from: "color",
+        modifiers: [["darker", "0.9"]],
+      }}
+      enableTracks={true}
+      enableRadialGrid={false}
+      enableCircularGrid={false}
+      radialAxisStart={null}
+      circularAxisOuter={null}
+      labelsTextColor={{ theme: "labels.text.fill" }}
+      legends={[]}
+    />
+  );
+
+  const MyResponsiveRadialBarFat = ({ userGoalsAndMacrosData, data }) => (
+    <ResponsiveRadialBar
+      data={[
+        {
+          id: "Goals",
+          data: [{ x: "Fat", y: macroGoals.fat }],
+        },
+        {
+          id: "Daily",
+          data: [{ x: "DailyFat", y: data.totalFat }],
+        },
+        // Add other data groups as needed
+      ]}
+      valueFormat=">-.2f"
+      endAngle={350}
+      padding={0.4}
+      cornerRadius={2}
+      colors={{ scheme: "pastel2" }}
+      borderColor={{
+        from: "color",
+        modifiers: [["darker", "0.9"]],
+      }}
+      enableTracks={true}
+      enableRadialGrid={false}
+      enableCircularGrid={false}
+      radialAxisStart={null}
+      circularAxisOuter={null}
+      labelsTextColor={{ theme: "labels.text.fill" }}
+      legends={[]}
+    />
   );
 
   const userGoalsAndMacrosData = {
@@ -140,7 +224,7 @@ function Dashboard() {
     carbs: macroGoals.carbs,
     fat: macroGoals.fat,
   };
-  
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -277,172 +361,231 @@ function Dashboard() {
 
   return (
     <StyledWrapper>
-                <ContainerOne>
-      {auth.currentUser == null ? (
-        <React.Fragment>
-          {errorMessage && <div>{errorMessage}</div>}
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <HeaderTitle
-            style={{
-              fontFamily: "'Playfair Display', sans-serif",
-              fontSize: "1.5rem",
-              letterSpacing: "0.07rem",
-            }}
-          >
-            Welcome, {username}
-          </HeaderTitle>
+      <ContainerOne>
+        {auth.currentUser == null ? (
+          <React.Fragment>
+            {errorMessage && <div>{errorMessage}</div>}
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <HeaderTitle
+              style={{
+                fontFamily: "'Playfair Display', sans-serif",
+                fontSize: "1.5rem",
+                letterSpacing: "0.07rem",
+              }}
+            >
+              Welcome, {username}
+            </HeaderTitle>
 
+            <DailyBox>
+              Your daily goals:
+              <DailyHeader>
+                <GoalsBoxCal>Calories</GoalsBoxCal>
+                <GoalsBoxProtein>Protein</GoalsBoxProtein>
+                <GoalsBoxCarbs>Carbs</GoalsBoxCarbs>
+                <GoalsBoxFat>Fat</GoalsBoxFat>
+              </DailyHeader>
+              <GoalsBox>
+                <GoalsBoxCal>
+                  <StyledMacroGoalInput
+                    macro="Calories"
+                    value={macroGoals.calories}
+                    onChange={(event) =>
+                      setMacroGoals({
+                        ...macroGoals,
+                        calories: Number(event.target.value),
+                      })
+                    }
+                  />
+                </GoalsBoxCal>
 
-          <DailyBox>
-            Your daily goals:
-            <DailyHeader>
-              <GoalsBoxCal>Calories</GoalsBoxCal>
-              <GoalsBoxProtein>Protein</GoalsBoxProtein>
-              <GoalsBoxCarbs>Carbs</GoalsBoxCarbs>
-              <GoalsBoxFat>Fat</GoalsBoxFat>
-            </DailyHeader>
-            <GoalsBox>
-              <GoalsBoxCal>
-                <StyledMacroGoalInput
-                  macro="Calories"
-                  value={macroGoals.calories}
-                  onChange={(event) =>
-                    setMacroGoals({
-                      ...macroGoals,
-                      calories: Number(event.target.value),
-                    })
-                  }
-                />
-              </GoalsBoxCal>
+                <GoalsBoxProtein>
+                  <StyledMacroGoalInput
+                    macro="Protein"
+                    value={macroGoals.protein}
+                    onChange={(event) =>
+                      setMacroGoals({
+                        ...macroGoals,
+                        protein: Number(event.target.value),
+                      })
+                    }
+                  />
+                </GoalsBoxProtein>
 
-              <GoalsBoxProtein>
-                <StyledMacroGoalInput
-                  macro="Protein"
-                  value={macroGoals.protein}
-                  onChange={(event) =>
-                    setMacroGoals({
-                      ...macroGoals,
-                      protein: Number(event.target.value),
-                    })
-                  }
-                />
-              </GoalsBoxProtein>
+                <GoalsBoxCarbs>
+                  <StyledMacroGoalInput
+                    macro="Carbs"
+                    value={macroGoals.carbs}
+                    onChange={(event) =>
+                      setMacroGoals({
+                        ...macroGoals,
+                        carbs: Number(event.target.value),
+                      })
+                    }
+                  />
+                </GoalsBoxCarbs>
 
-              <GoalsBoxCarbs>
-                <StyledMacroGoalInput
-                  macro="Carbs"
-                  value={macroGoals.carbs}
-                  onChange={(event) =>
-                    setMacroGoals({
-                      ...macroGoals,
-                      carbs: Number(event.target.value),
-                    })
-                  }
-                />
-              </GoalsBoxCarbs>
+                <GoalsBoxFat>
+                  <StyledMacroGoalInput
+                    macro="Fat"
+                    value={macroGoals.fat}
+                    onChange={(event) =>
+                      setMacroGoals({
+                        ...macroGoals,
+                        fat: Number(event.target.value),
+                      })
+                    }
+                  />
+                </GoalsBoxFat>
+              </GoalsBox>
+              <span style={{ fontStyle: "italic", fontSize: "9px" }}>
+                *click on each goal number to edit.
+              </span>
+            </DailyBox>
 
-              <GoalsBoxFat>
-                <StyledMacroGoalInput
-                  macro="Fat"
-                  value={macroGoals.fat}
-                  onChange={(event) =>
-                    setMacroGoals({
-                      ...macroGoals,
-                      fat: Number(event.target.value),
-                    })
-                  }
-                />
-              </GoalsBoxFat>
-            </GoalsBox>
-            <span style={{ fontStyle: "italic", fontSize: "9px" }}>
-              *click on each goal number to edit.
-            </span>
-          </DailyBox>
+            <PantryBox>
+              <img
+                src={myImage}
+                alt="My image"
+                style={{ width: "30px", height: "100%" }}
+              />
+              <select className="dropdownDashboard" onChange={handleFoodChange}>
+                <option value="">From your pantry:</option>
+                {foodDocs.map((doc) => (
+                  <option key={doc.id} value={doc.id}>
+                    {doc.data.name}
+                  </option>
+                ))}
+              </select>
+              <Button onClick={handleAddMacroDiv}>Add</Button>
+              {macroDivs.length > 0 && (
+                <Button onClick={handleCleanMacroDivs}>Clean</Button>
+              )}{" "}
+            </PantryBox>
 
-        
-          <PantryBox>
-            <img
-              src={myImage}
-              alt="My image"
-              style={{ width: "30px", height: "100%" }}
-            />
-            <select className="dropdownDashboard" onChange={handleFoodChange}>
-              <option value="">From your pantry:</option>
-              {foodDocs.map((doc) => (
-                <option key={doc.id} value={doc.id}>
-                  {doc.data.name}
-                </option>
+            <MacrosBox>
+              <MacrosBoxHeader>
+                <MacrosBoxHeaderTime></MacrosBoxHeaderTime>
+                <MacrosBoxHeaderName>Name</MacrosBoxHeaderName>
+                <MacrosBoxHeaderCalories>Calories</MacrosBoxHeaderCalories>
+                <MacrosBoxHeaderProtein>Protein</MacrosBoxHeaderProtein>
+                <MacrosBoxHeaderCarbs>Carbs</MacrosBoxHeaderCarbs>
+                <MacrosBoxHeaderFat>Fat</MacrosBoxHeaderFat>
+              </MacrosBoxHeader>
+              {macroDivs.map((macroDiv) => (
+                <Macros key={macroDiv.id}>
+                  <MacrosBoxContent>
+                    <MacrosBoxContentTime>{macroDiv.time}</MacrosBoxContentTime>
+                    <MacrosBoxContentName>{macroDiv.name}</MacrosBoxContentName>
+                    <MacrosBoxContentCalories>
+                      {macroDiv.calories}
+                    </MacrosBoxContentCalories>
+                    <MacrosBoxContentProtein>
+                      {macroDiv.protein}
+                    </MacrosBoxContentProtein>
+                    <MacrosBoxContentCarbs>
+                      {macroDiv.carbs}
+                    </MacrosBoxContentCarbs>
+                    <MacrosBoxContentFat>{macroDiv.fat}</MacrosBoxContentFat>
+                    <MacrosBoxContentDelete>
+                      <DeleteButton
+                        onClick={() => handleDeleteMacroDiv(macroDiv.id)}
+                      >
+                        Delete
+                      </DeleteButton>
+                    </MacrosBoxContentDelete>
+                  </MacrosBoxContent>
+                </Macros>
               ))}
-            </select>
-            <Button onClick={handleAddMacroDiv}>Add</Button>
-            {macroDivs.length > 0 && (
-              <Button onClick={handleCleanMacroDivs}>Clean</Button>
-            )}{" "}
-          </PantryBox>
+              <TotalBox>
+                <TotalBoxTotal>Total:</TotalBoxTotal>
+                <TotalBoxCalories>{totalCalories}</TotalBoxCalories>
+                <TotalBoxProtein>{totalProtein}</TotalBoxProtein>
+                <TotalBoxCarbs>{totalCarbs}</TotalBoxCarbs>
+                <TotalBoxFat>{totalFat}</TotalBoxFat>{" "}
+              </TotalBox>{" "}
+              {/* display total protein */}
+            </MacrosBox>
 
-          <MacrosBox>
-            <MacrosBoxHeader>
-              <MacrosBoxHeaderTime></MacrosBoxHeaderTime>
-              <MacrosBoxHeaderName>Name</MacrosBoxHeaderName>
-              <MacrosBoxHeaderCalories>Calories</MacrosBoxHeaderCalories>
-              <MacrosBoxHeaderProtein>Protein</MacrosBoxHeaderProtein>
-              <MacrosBoxHeaderCarbs>Carbs</MacrosBoxHeaderCarbs>
-              <MacrosBoxHeaderFat>Fat</MacrosBoxHeaderFat>
-            </MacrosBoxHeader>
-            {macroDivs.map((macroDiv) => (
-              <Macros key={macroDiv.id}>
-                <MacrosBoxContent>
-                  <MacrosBoxContentTime>{macroDiv.time}</MacrosBoxContentTime>
-                  <MacrosBoxContentName>{macroDiv.name}</MacrosBoxContentName>
-                  <MacrosBoxContentCalories>
-                    {macroDiv.calories}
-                  </MacrosBoxContentCalories>
-                  <MacrosBoxContentProtein>
-                    {macroDiv.protein}
-                  </MacrosBoxContentProtein>
-                  <MacrosBoxContentCarbs>
-                    {macroDiv.carbs}
-                  </MacrosBoxContentCarbs>
-                  <MacrosBoxContentFat>{macroDiv.fat}</MacrosBoxContentFat>
-                  <MacrosBoxContentDelete>
-                    <DeleteButton
-                      onClick={() => handleDeleteMacroDiv(macroDiv.id)}
-                    >
-                      Delete
-                    </DeleteButton>
-                  </MacrosBoxContentDelete>
-                </MacrosBoxContent>
-              </Macros>
-            ))}
-            <TotalBox>
-              <TotalBoxTotal>Total:</TotalBoxTotal>
-              <TotalBoxCalories>{totalCalories}</TotalBoxCalories>
-              <TotalBoxProtein>{totalProtein}</TotalBoxProtein>
-              <TotalBoxCarbs>{totalCarbs}</TotalBoxCarbs>
-              <TotalBoxFat>{totalFat}</TotalBoxFat>{" "}
-            </TotalBox>{" "}
-            {/* display total protein */}
-          </MacrosBox>
-
-          <DifferencesBox>
-            <DifferencesBoxTotal>Remaining:</DifferencesBoxTotal>
-            <DifferencesBoxCalories>
-              {differenceCalories}
-            </DifferencesBoxCalories>
-            <DifferencesBoxProtein>{differenceProtein}</DifferencesBoxProtein>
-            <DifferencesBoxCarbs>{differenceCarbs}</DifferencesBoxCarbs>
-            <DifferencesBoxFat>{differenceFat}</DifferencesBoxFat>
-          </DifferencesBox>
-        </React.Fragment>
-      )}
+            <DifferencesBox>
+              <DifferencesBoxTotal>Remaining:</DifferencesBoxTotal>
+              <DifferencesBoxCalories>
+                {differenceCalories}
+              </DifferencesBoxCalories>
+              <DifferencesBoxProtein>{differenceProtein}</DifferencesBoxProtein>
+              <DifferencesBoxCarbs>{differenceCarbs}</DifferencesBoxCarbs>
+              <DifferencesBoxFat>{differenceFat}</DifferencesBoxFat>
+            </DifferencesBox>
+          </React.Fragment>
+        )}
       </ContainerOne>
 
       <ContainerTwo>
-      <GraphBox> 
-        Calories
-        <MyResponsiveRadialBar userGoalsAndMacrosData={userGoalsAndMacrosData} data={{ totalProtein , totalCalories , totalCarbs , totalFat }} /> </GraphBox>
+        <div
+          style={{
+            fontFamily: "'Playfair Display', sans-serif",
+            fontSize: "9pt",
+            textAlign: "center",
+          }}
+        >
+          Calories
+        </div>
+        <GraphBox>
+          <MyResponsiveRadialBar
+            userGoalsAndMacrosData={userGoalsAndMacrosData}
+            data={{ totalProtein, totalCalories, totalCarbs, totalFat }}
+          />{" "}
+        </GraphBox>
+
+        <div
+          style={{
+            fontFamily: "'Playfair Display', sans-serif",
+            fontSize: "9pt",
+            textAlign: "center",
+          }}
+        >
+          Protein
+        </div>
+        <GraphBox>
+          <MyResponsiveRadialBarProtein
+            userGoalsAndMacrosData={userGoalsAndMacrosData}
+            data={{ totalProtein, totalCalories, totalCarbs, totalFat }}
+          />{" "}
+        </GraphBox>
+
+        <div
+          style={{
+            fontFamily: "'Playfair Display', sans-serif",
+            fontSize: "9pt",
+            textAlign: "center",
+          }}
+        >
+          Carbs
+        </div>
+        <GraphBox>
+          <MyResponsiveRadialBarCarbs
+            userGoalsAndMacrosData={userGoalsAndMacrosData}
+            data={{ totalProtein, totalCalories, totalCarbs, totalFat }}
+          />{" "}
+        </GraphBox>
+
+        <div
+          style={{
+            fontFamily: "'Playfair Display', sans-serif",
+            fontSize: "9pt",
+            textAlign: "center",
+          }}
+        >
+          Fat
+        </div>
+        <GraphBox>
+          <MyResponsiveRadialBarFat
+            userGoalsAndMacrosData={userGoalsAndMacrosData}
+            data={{ totalProtein, totalCalories, totalCarbs, totalFat }}
+          />{" "}
+        </GraphBox>
+
       </ContainerTwo>
     </StyledWrapper>
   );
