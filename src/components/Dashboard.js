@@ -585,7 +585,6 @@ function Dashboard() {
             data={{ totalProtein, totalCalories, totalCarbs, totalFat }}
           />{" "}
         </GraphBox>
-
       </ContainerTwo>
     </StyledWrapper>
   );

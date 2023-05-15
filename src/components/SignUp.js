@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { auth , db } from "../firebase.js";
+import { auth, db } from "../firebase.js";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut, updateProfile,
+  signOut,
+  updateProfile,
 } from "firebase/auth";
 import styled from "styled-components";
 import SplashPage from "./SplashPage.js";
-
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -102,28 +102,31 @@ function SignUp() {
     const password = event.target.password.value;
 
     createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      const uid = user.uid;
-      const displayName = name; // set the user's display name to the entered name
-      updateProfile(user, { displayName }) // update the user's profile with the new display name
-        .then(() => {
-          setSignUpSuccess(`Welcome to Apptize, ${name}!`);
-        })
-        .catch((error) => {
-          setSignUpSuccess(`There was an error signing up: ${error.message}!`);
-        });
-    })
-    .catch((error) => {
-      setSignUpSuccess(`There was an error signing up: ${error.message}!`);
-    });
+      .then((userCredential) => {
+        const user = userCredential.user;
+        const uid = user.uid;
+        const displayName = name; // set the user's display name to the entered name
+        updateProfile(user, { displayName }) // update the user's profile with the new display name
+          .then(() => {
+            setSignUpSuccess(`Welcome to Apptize, ${name}!`);
+          })
+          .catch((error) => {
+            setSignUpSuccess(
+              `There was an error signing up: ${error.message}!`
+            );
+          });
+      })
+      .catch((error) => {
+        setSignUpSuccess(`There was an error signing up: ${error.message}!`);
+      });
   }
 
   function doSignOut() {
     signOut(auth)
-      .then(function() {
+      .then(function () {
         setSignOutSuccess("You have successfully signed out!");
-      }).catch(function(error) {
+      })
+      .catch(function (error) {
         setSignOutSuccess(`There was an error signing out: ${error.message}!`);
       });
   }
@@ -134,13 +137,16 @@ function SignUp() {
         <SignUpBox>
           <Header>It's free.</Header>
           <form onSubmit={doSignUp}>
-  <Input type="text" name="name" placeholder="name" /><br />
-  <Input type="text" name="email" placeholder="email"/><br />
-  <Input type="password" name="password" placeholder="password" /><br />
-  <ButtonContainer>
-  <Button type="submit">Sign up</Button>
-</ButtonContainer>
-</form>
+            <Input type="text" name="name" placeholder="name" />
+            <br />
+            <Input type="text" name="email" placeholder="email" />
+            <br />
+            <Input type="password" name="password" placeholder="password" />
+            <br />
+            <ButtonContainer>
+              <Button type="submit">Sign up</Button>
+            </ButtonContainer>
+          </form>
         </SignUpBox>
       </StyledWrapper>
     );
@@ -154,7 +160,7 @@ function SignUp() {
         </SignUpBox>
       </StyledWrapper>
     );
-    } else {
+  } else {
     return (
       <React.Fragment>
         <SplashPage />

@@ -9,8 +9,6 @@ import NewFoodForm from "./components/NewFoodForm";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 
-
-
 export default function App() {
   return (
     <Router>
@@ -22,7 +20,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<SplashPage />} default />
               <Route path="/additems" element={<AddItems />} />
-              <Route path="/newfoodform" element={<NewFoodForm  />} />
+              <Route path="/newfoodform" element={<NewFoodForm />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />

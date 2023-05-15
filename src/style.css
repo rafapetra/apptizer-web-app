@@ -7,7 +7,8 @@
 
 html,
 body {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-size: 8pt;
   margin: 0;
   padding: 0;
@@ -22,7 +23,7 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color:#ffcb45
+  color: #ffcb45;
 }
 
 .header {
@@ -78,7 +79,7 @@ a:hover {
   margin-bottom: 0;
   padding-top: 15px;
   gap: 16px;
-  position:static;
+  position: static;
 }
 
 .content {
@@ -91,30 +92,31 @@ a:hover {
 }
 
 .dropdown {
-  background-color: #447cfc; 
-border: solid 0.8px #e6edff;
-width: 140px;
-font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-color: #e6edff;
-font-size: 8pt;
-padding: 2px;
-
+  background-color: #447cfc;
+  border: solid 0.8px #e6edff;
+  width: 140px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: #e6edff;
+  font-size: 8pt;
+  padding: 2px;
 }
 
 .dropdownDashboard {
-  background-color: #447cfc; 
-margin-left: 10px;
-border: solid 0.8px #e6edff;
-width: 130px;
-font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-color: #e6edff;
-font-size: 8pt;
-margin: 2px;
-padding: 2px;
+  background-color: #447cfc;
+  margin-left: 10px;
+  border: solid 0.8px #e6edff;
+  width: 130px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: #e6edff;
+  font-size: 8pt;
+  margin: 2px;
+  padding: 2px;
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
@@ -123,6 +125,6 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border-bottom: solid 0.8px #e6edff;
-    -webkit-text-fill-color: #b3ff57;
+  -webkit-text-fill-color: #b3ff57;
   -webkit-box-shadow: 0 0 0px 1000px #447cfc inset;
 }

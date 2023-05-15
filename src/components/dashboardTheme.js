@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
   line-height: 25pt;
   color: #ffffff;
   width: auto;
@@ -16,19 +16,19 @@ flex-direction: row;
 `;
 
 const ContainerOne = styled.div`
-order: 0;
-width: 400px;
-background: #447cfc;
-padding: 0px;
+  order: 0;
+  width: 400px;
+  background: #447cfc;
+  padding: 0px;
 `;
 
 const ContainerTwo = styled.div`
-order: 1;
-color: #ffffff;
-width: 100px;
-background: #447cfc;
-padding: 0px;
-margin-left: 40px;
+  order: 1;
+  color: #ffffff;
+  width: 100px;
+  background: #447cfc;
+  padding: 0px;
+  margin-left: 40px;
 `;
 
 const Button = styled.button`
@@ -87,12 +87,11 @@ const Macros = styled.div`
   width: 400px;
   padding: 0px;
   font-size: 7pt;
-
 `;
 
 const MacrosBox = styled.div`
   display: flex;
-    font-size: 7pt;
+  font-size: 7pt;
   flex-direction: column;
   font-size: 8pt;
   line-height: 25pt;
@@ -105,7 +104,6 @@ const MacrosBox = styled.div`
   &:hover a {
     text-decoration: none;
   }
-
 `;
 
 const MacrosBoxHeader = styled.div`
@@ -241,7 +239,6 @@ const TotalBox = styled.div`
   flex-direction: row;
   margin-top: 10px;
   border-bottom: solid 0.5px #bedc90;
-
 `;
 
 const DifferencesBox = styled.div`
@@ -250,7 +247,6 @@ const DifferencesBox = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 0px;
-
 `;
 
 const DifferencesBoxTotal = styled.div`
@@ -258,10 +254,9 @@ const DifferencesBoxTotal = styled.div`
   width: 150px;
   order: 0;
   text-align: right;
-  color:#f1d3d6;
-  font-size:10pt;
+  color: #f1d3d6;
+  font-size: 10pt;
   padding-right: 10px;
-
 `;
 
 const DifferencesBoxCalories = styled.div`
@@ -298,10 +293,9 @@ const TotalBoxTotal = styled.div`
   width: 150px;
   order: 0;
   text-align: right;
-  color:#f1d3d6;
-  font-size:10pt;
+  color: #f1d3d6;
+  font-size: 10pt;
   padding-right: 10px;
-
 `;
 
 const TotalBoxCalories = styled.div`
@@ -335,7 +329,7 @@ const TotalBoxFat = styled.div`
 
 const GoalsBox = styled.div`
   display: flex;
-    font-size: 7pt;
+  font-size: 7pt;
   flex-direction: row;
   font-size: 10pt;
   line-height: 25pt;
@@ -370,74 +364,69 @@ const DailyHeader = styled.div`
 `;
 
 const GoalsBoxGoal = styled.div`
-background-color: #447cfc;
-width: 45px;
-order: 0;
-text-align: center;
-font-size:10pt;
-color:#bedc90;
-padding-right: 9px;
-
+  background-color: #447cfc;
+  width: 45px;
+  order: 0;
+  text-align: center;
+  font-size: 10pt;
+  color: #bedc90;
+  padding-right: 9px;
 `;
 
 const GoalsBoxCal = styled.div`
-background-color: #447cfc;
-width: 42px;
-order: 1;
-text-align: center;
-color: #fce945;
-font-size: 9pt;
+  background-color: #447cfc;
+  width: 42px;
+  order: 1;
+  text-align: center;
+  color: #fce945;
+  font-size: 9pt;
 `;
 
 const GoalsBoxProtein = styled.div`
-background-color: #447cfc;
-width: 42x;
-order: 2;
-text-align: center;
-font-size: 9pt;
-color: #fce945;
-
+  background-color: #447cfc;
+  width: 42x;
+  order: 2;
+  text-align: center;
+  font-size: 9pt;
+  color: #fce945;
 `;
 
 const GoalsBoxCarbs = styled.div`
-background-color: #447cfc;
-width: 42px;
-order: 3;
-text-align: center;
-font-size: 9pt;
-color: #fce945;
-
+  background-color: #447cfc;
+  width: 42px;
+  order: 3;
+  text-align: center;
+  font-size: 9pt;
+  color: #fce945;
 `;
 
 const GoalsBoxFat = styled.div`
-background-color: #447cfc;
-width: 42px;
-order: 4;
-text-align: center;
-font-size: 9pt;
-color: #fce945;
-
+  background-color: #447cfc;
+  width: 42px;
+  order: 4;
+  text-align: center;
+  font-size: 9pt;
+  color: #fce945;
 `;
 
 const StyledMacroGoalInput = styled.input`
-width: 42px;
-height: 20px;
-background-color: #447cfc;
-border: solid 0.8px #7cfc45;
-border-radius: 3.5px;
-padding: 2px;
-font-size: 8pt;
-color: #7cfc45;
-text-align: center;
-&:active {
-  border: solid 0.8px #e6edff;
-}
-&:focus {
-  border: 0;
-  background-color: #fce945;
-  color: #000000
-
-}
+  width: 42px;
+  height: 20px;
+  background-color: #447cfc;
+  border: solid 0.8px #7cfc45;
+  border-radius: 3.5px;
+  padding: 2px;
+  font-size: 8pt;
+  color: #7cfc45;
+  text-align: center;
+  &:active {
+    border: solid 0.8px #e6edff;
+  }
+  &:focus {
+    border: 0;
+    background-color: #fce945;
+    color: #000000;
+  }
 `;
 
 const PantryBox = styled.div`
@@ -446,31 +435,29 @@ const PantryBox = styled.div`
   align-items: center;
   gap: 10px;
   margin-bottom: 17px;
-
 `;
 
 const DailyBox = styled.div`
-order: 0;
-width: 315px;
-background: #447cfc;
-border: solid 0.8px #c7d8fe;
-border-radius: 6pt;
-padding: 22px;
-padding-top: 5px;
-padding-bottom: 5px;
-margin: 8px;
-margin-bottom: 30px;
+  order: 0;
+  width: 315px;
+  background: #447cfc;
+  border: solid 0.8px #c7d8fe;
+  border-radius: 6pt;
+  padding: 22px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 8px;
+  margin-bottom: 30px;
 `;
 
 const GraphBox = styled.div`
-order: 1;
-height: 80px;
-background: #447cfc;
-text-align: center;
-font-size: 8pt;
-margin-bottom: 15px;
+  order: 1;
+  height: 80px;
+  background: #447cfc;
+  text-align: center;
+  font-size: 8pt;
+  margin-bottom: 15px;
 `;
-
 
 export {
   StyledWrapper,
