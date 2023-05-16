@@ -156,12 +156,13 @@ function SignUp() {
   } else if (auth.currentUser != null) {
     return (
       <StyledWrapper>
-        <SignUpBox>
-          {signUpSuccess}
-          <br />
-          <Button onClick={doSignOut}>Sign out</Button>
-        </SignUpBox>
-      </StyledWrapper>
+      <SignUpBox>
+        {signUpSuccess}
+        {errorMessage && <div>Error: {errorMessage}</div>} {/* Render the error message */}
+        <br />
+        <Button onClick={doSignOut}>Sign out</Button>
+      </SignUpBox>
+    </StyledWrapper>
     );
   } else {
     return (

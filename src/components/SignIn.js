@@ -5,7 +5,6 @@ import {
   signOut,
 } from "firebase/auth";
 import styled from "styled-components";
-import SplashPage from "./SplashPage.js";
 
 const StyledWrapper = styled.div`
   display: flex;
