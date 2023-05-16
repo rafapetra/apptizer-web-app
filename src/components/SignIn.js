@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
 import { auth } from "./../firebase.js";
 import {
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
@@ -100,7 +99,6 @@ padding: 4px;
 function SignIn() {
   const [signInSuccess, setSignInSuccess] = useState(null);
   const [signInError, setSignInError] = useState(null);
-  const [signOutSuccess, setSignOutSuccess] = useState(null);
 
   function doSignIn(event) {
     event.preventDefault();
@@ -120,10 +118,12 @@ function SignIn() {
   function doSignOut() {
     signOut(auth)
       .then(function () {
-        setSignOutSuccess("You have successfully signed out!");
+        setSignInSuccess(null);
+        setSignInError(null);
       })
       .catch(function (error) {
-        setSignOutSuccess(`There was an error signing out: ${error.message}!`);
+        const errorMessage = `There was an error signing out: ${error.message}!`;
+        setSignInError(errorMessage);
       });
   }
 
@@ -132,7 +132,6 @@ function SignIn() {
       <StyledWrapper>
         <SignInBox>
           <Header>Welcome back.</Header>
-          {signInSuccess}
           {signInError}
           <form onSubmit={doSignIn}>
             <Input type="text" name="email" placeholder="e-mail" />
@@ -142,28 +141,28 @@ function SignIn() {
               placeholder="password"
             />
             <ButtonContainer>
-            <Button type="submit">Log In</Button>
-              </ButtonContainer>
+              <Button type="submit">Log In</Button>
+            </ButtonContainer>
           </form>
-        </SignInBox>
-      </StyledWrapper>
-    );
-  } else if (auth.currentUser != null) {
-    return (
-      <StyledWrapper>
-        <SignInBox>
-          {signInSuccess}<br />
-          <Button onClick={doSignOut}>Sign out</Button>
         </SignInBox>
       </StyledWrapper>
     );
   } else {
     return (
-      <React.Fragment>
-        <SplashPage />
-      </React.Fragment>
+      <StyledWrapper>
+        {signInSuccess && (
+          <React.Fragment>
+            <p>{signInSuccess}</p>
+            <Button onClick={doSignOut}>Sign out</Button>
+          </React.Fragment>
+        )}
+        {!signInSuccess && (
+          <React.Fragment>
+            <Button onClick={doSignOut}>Sign out</Button>
+          </React.Fragment>
+        )}
+      </StyledWrapper>
     );
-      
   }
 }
 

@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { db, auth, app, getDb } from "./../firebase.js";
+import { db, auth, } from "./../firebase.js";
 
 import {
   collection,
   addDoc,
-  setDoc,
   doc,
-  getDoc,
   getDocs,
 } from "firebase/firestore";
 import styled from "styled-components";
-import Header from "./Header.js";
 
 const Input = styled.input`
   padding: 0.5em;
@@ -111,7 +108,6 @@ padding: 4px;
 `;
 
 function NewFoodForm(props) {
-  const [foodItems, setFoodItems] = useState([]);
 
   useEffect(() => {
     const user = auth.currentUser;
@@ -122,7 +118,6 @@ function NewFoodForm(props) {
     getDocs(userFoodsCollectionRef)
       .then((querySnapshot) => {
         const foods = querySnapshot.docs.map((doc) => doc.data());
-        setFoodItems(foods);
       })
       .catch((error) => {
         console.error(error);

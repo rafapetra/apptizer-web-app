@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { db, auth, app, getDb } from "./../firebase.js";
+import { db, auth,  } from "./../firebase.js";
 import {
   collection,
   addDoc,
@@ -182,7 +182,7 @@ function AddItems() {
               <HeaderDiv>
                 <img
                   src={salad}
-                  alt="My image"
+                  alt="Logo"
                   style={{ width: "50px", height: "auto" }}
                 />
                 <HeaderTitle

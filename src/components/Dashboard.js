@@ -6,8 +6,6 @@ import myImage from "../images/food.png";
 
 import {
   collection,
-  addDoc,
-  setDoc,
   doc,
   getDoc,
   getDocs,
@@ -42,7 +40,6 @@ import {
   TotalBoxCarbs,
   TotalBoxFat,
   GoalsBox,
-  GoalsBoxGoal,
   GoalsBoxCal,
   GoalsBoxProtein,
   GoalsBoxCarbs,
@@ -235,7 +232,6 @@ function Dashboard() {
         getDoc(userDocRef)
           .then((doc) => {
             if (doc.exists()) {
-              const userData = doc.data();
               setUsername(displayName);
             }
           })
@@ -340,15 +336,12 @@ function Dashboard() {
     setMacroDivs((prevMacroDivs) =>
       prevMacroDivs.filter((div) => div.id !== id)
     );
+  
+    if (macroDivs.length === 1) {
+      setIsClean(true);
+    }
   };
 
-  const MacroGoalInput = ({ macro, value, onChange }) => {
-    return (
-      <label>
-        <input type="number" value={value} onChange={onChange} />
-      </label>
-    );
-  };
 
   const handleCleanMacroDivs = () => {
     setMacroDivs([]);
@@ -447,7 +440,7 @@ function Dashboard() {
             <PantryBox>
               <img
                 src={myImage}
-                alt="My image"
+                alt="Icon"
                 style={{ width: "50px", height: "100%" }}
               />
               <select className="dropdownDashboard" onChange={handleFoodChange}>
@@ -460,7 +453,9 @@ function Dashboard() {
               </select>
               <Button onClick={handleAddMacroDiv}>Add</Button>
               {macroDivs.length > 0 && (
-                <Button onClick={handleCleanMacroDivs}>Clean</Button>
+                <Button onClick={handleCleanMacroDivs}>
+                  {isClean ? 'Clean' : 'Reset'}
+                </Button>
               )}{" "}
             </PantryBox>
 

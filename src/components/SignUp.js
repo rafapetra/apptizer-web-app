@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { auth, db } from "../firebase.js";
+import { auth } from "../firebase.js";
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -98,7 +97,6 @@ padding: 4px;
 
 function SignUp() {
   const [signUpSuccess, setSignUpSuccess] = useState(null);
-  const [signOutSuccess, setSignOutSuccess] = useState(null);
 
   function doSignUp(event) {
     event.preventDefault();
@@ -109,7 +107,6 @@ function SignUp() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        const uid = user.uid;
         const displayName = name; // set the user's display name to the entered name
         updateProfile(user, { displayName }) // update the user's profile with the new display name
           .then(() => {
@@ -125,14 +122,15 @@ function SignUp() {
         setSignUpSuccess(`There was an error signing up: ${error.message}!`);
       });
   }
-
   function doSignOut() {
     signOut(auth)
       .then(function () {
-        setSignOutSuccess("You have successfully signed out!");
+        setSignUpSuccess(null);
+        
       })
       .catch(function (error) {
-        setSignOutSuccess(`There was an error signing out: ${error.message}!`);
+        const errorMessage = `There was an error signing out: ${error.message}!`;
+        
       });
   }
 

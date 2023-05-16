@@ -13,7 +13,7 @@ export default function Header() {
       >
         <img
           src={logo}
-          alt="My image"
+          alt="Apptize"
           style={{ width: "50px", height: "auto" }}
         />
         <Link to="/">
