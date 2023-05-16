@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "repo": "<rafapetra/apptizer-web-app>",
     "public": "build",
     "ignore": [
       "firebase.json",
