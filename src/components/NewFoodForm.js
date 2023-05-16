@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { db, auth, } from "./../firebase.js";
 
@@ -117,7 +117,6 @@ function NewFoodForm(props) {
 
     getDocs(userFoodsCollectionRef)
       .then((querySnapshot) => {
-        const foods = querySnapshot.docs.map((doc) => doc.data());
       })
       .catch((error) => {
         console.error(error);
