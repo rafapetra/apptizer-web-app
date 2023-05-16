@@ -257,7 +257,7 @@ function Dashboard() {
             console.error(error);
           });
       } else {
-        setErrorMessage("User not logged in.");
+        setErrorMessage("Sign up and log in to start tracking.");
       }
     });
 
@@ -371,7 +371,7 @@ function Dashboard() {
             <HeaderTitle
               style={{
                 fontFamily: "'Playfair Display', sans-serif",
-                fontSize: "1.5rem",
+                fontSize: "2.0rem",
                 letterSpacing: "0.07rem",
               }}
             >
@@ -439,7 +439,7 @@ function Dashboard() {
                   />
                 </GoalsBoxFat>
               </GoalsBox>
-              <span style={{ fontStyle: "italic", fontSize: "9px" }}>
+              <span style={{ fontStyle: "italic", fontSize: "10pt" }}>
                 *click on each goal number to edit.
               </span>
             </DailyBox>
@@ -448,7 +448,7 @@ function Dashboard() {
               <img
                 src={myImage}
                 alt="My image"
-                style={{ width: "30px", height: "100%" }}
+                style={{ width: "50px", height: "100%" }}
               />
               <select className="dropdownDashboard" onChange={handleFoodChange}>
                 <option value="">From your pantry:</option>
@@ -506,26 +506,26 @@ function Dashboard() {
                 <TotalBoxFat>{totalFat}</TotalBoxFat>{" "}
               </TotalBox>{" "}
               {/* display total protein */}
+              <DifferencesBox>
+                <DifferencesBoxTotal>Remaining:</DifferencesBoxTotal>
+                <DifferencesBoxCalories>
+                  {differenceCalories}
+                </DifferencesBoxCalories>
+                <DifferencesBoxProtein>
+                  {differenceProtein}
+                </DifferencesBoxProtein>
+                <DifferencesBoxCarbs>{differenceCarbs}</DifferencesBoxCarbs>
+                <DifferencesBoxFat>{differenceFat}</DifferencesBoxFat>
+              </DifferencesBox>
             </MacrosBox>
-
-            <DifferencesBox>
-              <DifferencesBoxTotal>Remaining:</DifferencesBoxTotal>
-              <DifferencesBoxCalories>
-                {differenceCalories}
-              </DifferencesBoxCalories>
-              <DifferencesBoxProtein>{differenceProtein}</DifferencesBoxProtein>
-              <DifferencesBoxCarbs>{differenceCarbs}</DifferencesBoxCarbs>
-              <DifferencesBoxFat>{differenceFat}</DifferencesBoxFat>
-            </DifferencesBox>
           </React.Fragment>
         )}
       </ContainerOne>
-
+      {auth.currentUser != null && (
       <ContainerTwo>
         <div
           style={{
-            fontFamily: "'Playfair Display', sans-serif",
-            fontSize: "9pt",
+            fontSize: "13pt",
             textAlign: "center",
           }}
         >
@@ -540,8 +540,7 @@ function Dashboard() {
 
         <div
           style={{
-            fontFamily: "'Playfair Display', sans-serif",
-            fontSize: "9pt",
+            fontSize: "13pt",
             textAlign: "center",
           }}
         >
@@ -556,8 +555,7 @@ function Dashboard() {
 
         <div
           style={{
-            fontFamily: "'Playfair Display', sans-serif",
-            fontSize: "9pt",
+            fontSize: "13pt",
             textAlign: "center",
           }}
         >
@@ -572,8 +570,7 @@ function Dashboard() {
 
         <div
           style={{
-            fontFamily: "'Playfair Display', sans-serif",
-            fontSize: "9pt",
+            fontSize: "13pt",
             textAlign: "center",
           }}
         >
@@ -586,6 +583,8 @@ function Dashboard() {
           />{" "}
         </GraphBox>
       </ContainerTwo>
+          )}
+
     </StyledWrapper>
   );
 }

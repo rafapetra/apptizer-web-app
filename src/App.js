@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NewFoodForm from "./components/NewFoodForm";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import Footer from "./components/Footer"; // Import the Footer component
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
               <Route path="/signup" element={<SignUp />} />
             </Routes>
           </div>
+          <Footer /> {/* Add the Footer component */}
         </div>
       </div>
     </Router>

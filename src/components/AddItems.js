@@ -15,14 +15,13 @@ import salad from "../images/salad.png";
 
 const Button = styled.button`
 background-color: #ffffff;
-font-size: 7pt;
-width: 80px;
+font-size: 12pt;
+width: 100px;
 height: auto;
 border: solid .8px #ffffff;
 border-radius: 16pt;
-margin-left: 73px;
 margin-top: 20px;
-margin-bottom: auto;
+margin-bottom: 10px;
 color: #000000;
 padding: 4px;
 
@@ -40,7 +39,7 @@ padding: 4px;
 `;
 
 const StyledWrapper = styled.div`
-  font-size: 8pt;
+  font-size: 12pt;
   line-height: 25pt;
   color: #ffffff;
   width: auto;
@@ -56,25 +55,29 @@ const DeleteBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 12pt;
 `;
 
 const ManageBox = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
+  align-items: center;
+  justify-content: center;
 `;
 
 const BoxHeader = styled.div`
   order: 0;
-  height: 60px;
+  height: auto;
+  margin-bottom: 40px;
 `;
 
 const Content = styled.div`
   order: 1;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-bottom: auto;
-  gap: 15px;
+  gap: 25px;
 `;
 
 const HeaderDiv = styled.div`
@@ -130,7 +133,7 @@ function AddItems() {
             console.error(error);
           });
       } else {
-        setErrorMessage("User not logged in.");
+        setErrorMessage("Sign up and log in to start tracking.");
       }
     });
 
@@ -146,7 +149,7 @@ function AddItems() {
   const handleDeleteSelectedFood = async () => {
     const user = auth.currentUser;
     if (!user) {
-      setErrorMessage("User not logged in.");
+      setErrorMessage("Sign up and log in to start tracking.");
       return;
     }
 
@@ -170,9 +173,9 @@ function AddItems() {
       <StyledWrapper>
         {" "}
         {auth.currentUser == null ? (
-          <React.Fragment>
+          <ManageBox>
             {errorMessage && <div>{errorMessage}</div>}
-          </React.Fragment>
+          </ManageBox>
         ) : (
           <ManageBox>
             <BoxHeader>
@@ -180,14 +183,14 @@ function AddItems() {
                 <img
                   src={salad}
                   alt="My image"
-                  style={{ width: "30px", height: "auto" }}
+                  style={{ width: "50px", height: "auto" }}
                 />
                 <HeaderTitle
                   style={{
                     fontFamily: "'Playfair Display', sans-serif",
-                    fontSize: "1.3rem",
+                    fontSize: "1.9rem",
                     letterSpacing: "0.04rem",
-                    marginLeft: "5px",
+                    marginLeft: "10px",
                   }}
                 >
                   Add new items to your list.

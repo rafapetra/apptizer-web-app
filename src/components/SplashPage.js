@@ -5,40 +5,37 @@ import { Link } from "react-router-dom";
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 8pt;
   text-align: center;
   color: #ffffff;
   width: 100%;
   background: #447cfc;
-  &:hover a {
-    text-decoration: none;
-  }
+`;
+
+const StyledLink = styled.a`
+  color: #ffffff;
+  text-decoration: underline;
 `;
 
 const Content = styled.div`
-  margin: auto;
   margin-top: 20px;
   margin-bottom: 10px;
-  width: 90%;
-  background: #447cfc;
 `;
 
 const Button = styled.button`
 background-color: #ffffff;
-font-size: 7pt;
-width: 80px;
+font-size: 14pt;
+width: 180px;
 height: auto;
-border: solid .8px #ffffff;
+border: solid 1px #ffffff;
 border-radius: 16pt;
-margin-top: auto;
-margin-bottom: 25px;
+margin-bottom: 55px;
 color: #000000;
-padding: 4px;
+padding: 8px;
 
 &:hover {
   background-color: #447cfc; 
   cursor: pointer;
-  border: solid .8px #ffffff;
+  border: solid 1px #ffffff;
   color: #ffffff;
   transition: all 0.2s ease-in-out;
 
@@ -59,7 +56,7 @@ const HeaderTitle = styled.span`
 `;
 
 const HeaderContent = styled.div`
-  font-size: 7pt;
+  font-size: 13pt;
   align-self: center;
   width: 50%;
   align-self: center;
@@ -76,26 +73,41 @@ const Container = styled.span`
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
+  gap: 20px;
 `;
 
 const BoxOne = styled.span`
   order: 1;
   display: flex;
   flex-direction: column;
-  width: 240px;
+  min-width: 450px;
   height: auto;
   background: #447cfc;
-  padding: 10px;
+  padding: 20px;
   text-align: left;
   gap: 13px;
-  border-right: solid 0.8px #ffffff;
+  border-right: solid 1px #ffffff;
+`;
+
+const BoxTwo = styled.span`
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: auto;
+  background: #447cfc;
+  padding: 20px;
+  text-align: left;
+  gap: 13px;
+  border-right: solid 0px #ffffff;
 `;
 
 const BoxTitle = styled.div``;
 
 const BoxOneText = styled.span`
-  margin-top: 0px;
-  font-size: 7pt;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 12pt;
 `;
 
 function SplashPage() {
@@ -105,7 +117,7 @@ function SplashPage() {
         <HeaderTitle
           style={{
             fontFamily: "'Playfair Display', sans-serif",
-            fontSize: "5.5rem",
+            fontSize: "6.5rem",
           }}
         >
           Feels good
@@ -114,7 +126,7 @@ function SplashPage() {
         <HeaderTitle
           style={{
             fontFamily: "'Playfair Display', sans-serif",
-            fontSize: "3.8rem",
+            fontSize: "4.8rem",
           }}
         >
           to fuel better.
@@ -137,17 +149,47 @@ function SplashPage() {
           <BoxTitle
             style={{
               fontFamily: "'Playfair Display', sans-serif",
-              fontSize: "1.7rem",
+              fontSize: "2.2rem",
             }}
           >
             Discover your balance.
           </BoxTitle>
           <BoxOneText>
-            Discover your perfect macronutrient balance with a Macro Calculator.
-            Estimate your specific needs based on age, physical characteristics,
-            activity level, and bodyweight goals.{" "}
+            <p>Find out your macronutrient balance with a Macro Calculator.</p>
+            <br />
+            <StyledLink href="https://www.calculator.net/macro-calculator.html">
+              Macros Calculator
+            </StyledLink>
           </BoxOneText>
         </BoxOne>
+
+        <BoxTwo>
+          <BoxTitle
+            style={{
+              fontFamily: "'Playfair Display', sans-serif",
+              fontSize: "2.2rem",
+            }}
+          >
+            What are macronutrients?
+          </BoxTitle>
+          <BoxOneText>
+            <p>
+              Macros, short for macronutrients, are the vital nutrients your
+              body requires in larger quantities to thrive. As the name
+              suggests, they play a significant role in providing your body with
+              the energy it needs, measured in calories or kilocalories (kcals).
+            </p>{" "}
+            <br />
+            <p>
+              There are three key types of macronutrients: carbohydrates,
+              proteins, and fats.{" "}
+            </p>{" "}
+            <br />{" "}
+            <StyledLink href="https://www.webmd.com/diet/what-are-macronutrients">
+              Learn More
+            </StyledLink>
+          </BoxOneText>
+        </BoxTwo>
       </Container>
     </StyledWrapper>
   );

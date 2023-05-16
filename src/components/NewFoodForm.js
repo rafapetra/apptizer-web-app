@@ -21,7 +21,7 @@ const Input = styled.input`
   background: #447cfc;
   border: none;
   border-bottom: solid 0.8px #e6edff;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 12pt;
 
   &::placeholder {
     color: #c2cff4; 
@@ -48,14 +48,15 @@ const StyledWrapper = styled.div`
 `;
 
 const NewFoodFormBox = styled.div`
-  width: 200px;
+  width: 300px;
   display: flex;
   flex-direction: row;
   background: #447cfc;
   color: #ffffff;
-  padding: 6px;
+  padding: 7px;
   border: #e6edff solid 0.8px;
   border-radius: 0pt;
+  font-size: 12pt;
 `;
 
 const LeftColumn = styled.div`
@@ -73,7 +74,7 @@ const LeftColumnRow = styled.div`
   background: #447cfc;
   text-align: right;
   padding: 6px;
-  margin-bottom: 5px;
+  margin-bottom: 13px;
 `;
 
 const RightColumnRow = styled.div`
@@ -86,13 +87,13 @@ const RightColumnRow = styled.div`
 
 const Button = styled.button`
 background-color: #ffffff;
-font-size: 7pt;
-width: 80px;
+font-size: 12pt;
+width: 100px;
 height: auto;
 border: solid .8px #ffffff;
 border-radius: 16pt;
 margin-top: 20px;
-margin-bottom: auto;
+margin-bottom: 10px;
 color: #000000;
 padding: 4px;
 

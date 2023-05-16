@@ -10,40 +10,44 @@ import styled from "styled-components";
 import SplashPage from "./SplashPage.js";
 
 const StyledWrapper = styled.div`
-  display: flex;
-  color: #ffffff;
-  flex-direction: column;
-  width: 300px;
-  height: 400px;
+display: flex;
+flex-direction: column;
+width: 400px;
+height: 400px;
+color: #ffffff;
+margin: auto;
+margin-top: 10px;
 `;
 
 const SignUpBox = styled.div`
-  order: 1;
-  padding: 15px;
-  height: auto;
-  background-color: #a7f547
-  font-size: 7pt;
-  margin: 8px;
-  align-items: center;
+order: 1;
+padding: 15px;
+height: auto;
+font-size: 12pt;
+margin: 8px;
+align-items: center;
+color: #ffffff;
+  gap: 10px;
 
 `;
 
 const Header = styled.h1`
-  font-size: 10pt;
+  font-size: 19pt;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 38px;
+  color: #ffffff;
 `;
 
 const Input = styled.input`
+  font-size: 14pt;
   padding: 0.5em;
   margin: 0.5em;
+  margin-bottom: 20px;
   width: 90%;
   color: #8cc895;
   background: #447cfc;
   border: none;
   border-bottom: solid 0.8px #e6edff;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 
   &::placeholder {
     color: #c2cff4; 
@@ -69,13 +73,13 @@ const ButtonContainer = styled.div`
 
 const Button = styled.button`
 background-color: #ffffff;
-font-size: 7pt;
-width: 80px;
+font-size: 12pt;
+width: 100px;
 height: auto;
 border: solid .8px #ffffff;
 border-radius: 16pt;
-margin-top: auto;
-margin-bottom: auto;
+margin-top: 20px;
+margin-bottom: 10px;
 color: #000000;
 padding: 4px;
 
@@ -91,6 +95,7 @@ padding: 4px;
     color: #000000;
   }
 `;
+
 function SignUp() {
   const [signUpSuccess, setSignUpSuccess] = useState(null);
   const [signOutSuccess, setSignOutSuccess] = useState(null);

@@ -7,9 +7,9 @@
 
 html,
 body {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  font-size: 8pt;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+  letter-spacing: 0.4pt;
   margin: 0;
   padding: 0;
   margin-bottom: 0;
@@ -23,17 +23,17 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: #ffcb45;
+  color: #fdcdac;
 }
 
 .header {
   display: flex;
   align-items: center;
-  height: 45px;
+  height: 75px;
   background: #447cfc; /* a7f547 */
   color: #ffffff;
-  padding: 20px;
-  border-bottom: solid 0.8px #e6edff;
+  padding: 25px;
+  border-bottom: solid 1px #e6edff;
   margin-bottom: 0;
   justify-content: space-between;
 }
@@ -64,7 +64,6 @@ a:hover {
   flex-direction: row;
   background: #447cfc;
   margin-bottom: 0;
-  width: auto;
   height: 100%;
 }
 
@@ -72,47 +71,49 @@ a:hover {
   order: 0;
   display: flex;
   flex-direction: column;
-  width: 100px;
+  min-width: 150px;
   background: #447cfc;
   padding: 13px;
-  border-right: solid 0px #e6edff;
+  border-right: solid 1px #e6edff;
   margin-bottom: 0;
-  padding-top: 15px;
-  gap: 16px;
+  padding-top: 35px;
+  gap: 26px;
   position: static;
+  font-size: 12pt;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  padding: 00px;
+  padding: 0px;
   background: #447cfc;
   margin-bottom: auto;
   width: auto;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 0px;
 }
 
 .dropdown {
   background-color: #447cfc;
   border: solid 0.8px #e6edff;
-  width: 140px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  width: 300px;
   color: #e6edff;
-  font-size: 8pt;
-  padding: 2px;
+  font-size: 12pt;
+  margin-top: 12px;
+  padding: 5px;
 }
 
 .dropdownDashboard {
   background-color: #447cfc;
   margin-left: 10px;
   border: solid 0.8px #e6edff;
-  width: 130px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  width: 220px;
   color: #e6edff;
-  font-size: 8pt;
+  font-size: 12pt;
   margin: 2px;
-  padding: 2px;
+  padding: 5px;
 }
 
 input:-webkit-autofill,
