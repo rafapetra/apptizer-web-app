@@ -97,6 +97,8 @@ padding: 4px;
 
 function SignUp() {
   const [signUpSuccess, setSignUpSuccess] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null); // Add state for error message
+
 
   function doSignUp(event) {
     event.preventDefault();
@@ -122,15 +124,15 @@ function SignUp() {
         setSignUpSuccess(`There was an error signing up: ${error.message}!`);
       });
   }
+  
   function doSignOut() {
     signOut(auth)
       .then(function () {
         setSignUpSuccess(null);
-        
       })
       .catch(function (error) {
         const errorMessage = `There was an error signing out: ${error.message}!`;
-        
+        setErrorMessage(errorMessage); // Update the error message state
       });
   }
 
