@@ -108,7 +108,7 @@ function SplashPage() {
             fontSize: "5.5rem",
           }}
         >
-          fuck
+          Feels good
         </HeaderTitle>
         <br />
         <HeaderTitle
