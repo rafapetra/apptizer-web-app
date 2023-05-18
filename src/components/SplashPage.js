@@ -53,6 +53,11 @@ const Hr = styled.hr`
 const HeaderTitle = styled.span`
   font-size: 20pt;
   align-self: center;
+
+
+  @media screen and (max-width: 1150px) {
+    font-size: 15pt;
+  }
 `;
 
 const HeaderContent = styled.div`
@@ -65,7 +70,7 @@ const HeaderContent = styled.div`
   margin-bottom: 10px;
 `;
 
-const Container = styled.span`
+const Container = styled.div`
   display: flex;
   direction: row;
   background: #447cfc;
@@ -73,11 +78,25 @@ const Container = styled.span`
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
-  gap: 20px;
+  gap: 5px;
+
+  @media screen and (max-width: 1150px) {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 3px;
+
+
+  }
+
+  @media screen and (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const BoxOne = styled.span`
-  order: 1;
+  order: 0;
   display: flex;
   flex-direction: column;
   min-width: 450px;
@@ -87,6 +106,19 @@ const BoxOne = styled.span`
   text-align: left;
   gap: 13px;
   border-right: solid 1px #ffffff;
+
+  @media screen and (max-width: 1150px) {
+    min-width: 100px;
+    max-width: 300px;
+
+    border-right: solid 1px #ffffff;
+  }
+
+  @media screen and (max-width: 650px) {
+    min-width: 400px;
+    border-bottom: solid 1px #ffffff;
+    border-right: solid 0px #ffffff;
+  }
 `;
 
 const BoxTwo = styled.span`
@@ -99,14 +131,22 @@ const BoxTwo = styled.span`
   padding: 20px;
   text-align: left;
   gap: 13px;
-  border-right: solid 0px #ffffff;
+
+  @media screen and (max-width: 1150px) {
+    width: 450px;
+
+    @media screen and (max-width: 650px) {
+      min-width: 400px;
+    }
+  }
+  
 `;
 
 const BoxTitle = styled.div``;
 
 const BoxOneText = styled.span`
   margin-top: 10px;
-  margin-right: 10px;
+  margin: 10px;
   font-size: 12pt;
 `;
 
@@ -190,7 +230,9 @@ function SplashPage() {
             </StyledLink>
           </BoxOneText>
         </BoxTwo>
+        
       </Container>
+
     </StyledWrapper>
   );
 }

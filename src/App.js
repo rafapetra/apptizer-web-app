@@ -10,10 +10,12 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Footer from "./components/Footer"; // Import the Footer component
 
+
+
 export default function App() {
   return (
     <Router>
-      <div>
+      
         <div className="container">
           <Header />
           <div className="container--box">
@@ -29,7 +31,8 @@ export default function App() {
           </div>
           <Footer /> {/* Add the Footer component */}
         </div>
-      </div>
+        
+
     </Router>
   );
 }
