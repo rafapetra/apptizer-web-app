@@ -46,3 +46,15 @@ Apptize is a web app designed to make tracking your nutrition and macros simple 
 ## Contributing
 
 Thank you for considering contributing to Apptize! If you have any suggestions, bug reports, or feature requests, please submit them to the [GitHub Issues](https://github.com/your-username/apptize/issues) page.
+
+## License
+
+The restaurant website is open source and released under the [MIT License](LICENSE). You can freely modify and distribute the code for personal or commercial purposes.
+
+## Acknowledgements
+
+We would like to thank the following resources for their invaluable contributions to this project:
+
+- [ReactJS Documentation](https://reactjs.org/docs)
+- [React Router Documentation](https://reactrouter.com)
+- [HTML5 Documentation](https://developer.mozilla.org/en-US/docs/Web/HTML)
