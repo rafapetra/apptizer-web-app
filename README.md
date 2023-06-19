@@ -46,11 +46,3 @@ Apptize is a web app designed to make tracking your nutrition and macros simple 
 ## Contributing
 
 Thank you for considering contributing to Apptize! If you have any suggestions, bug reports, or feature requests, please submit them to the [GitHub Issues](https://github.com/your-username/apptize/issues) page.
-
-## License
-
-[Specify the license under which your project is distributed.]
-
-## Acknowledgments
-
-[Give credit to any individuals, resources, or third-party libraries that have been helpful in your project.]
